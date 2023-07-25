@@ -11,17 +11,17 @@ const HMeta = ({
     pageTitle?: string
     pageDescription?: string
     pagePath?: string
-    pageImg: any
+    pageImg?: any
     pageImgWidth?: number
     pageImgHeight?: number
 }) => {
   const defaultTitle = 'VARIUS'
   const defaultDescription = 'Web3 development'
-
+  const defaultImg = '/favicon.ico'
   const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle
   const description = pageDescription ? pageDescription : defaultDescription
   const url = pagePath
-  const imgUrl = pageImg
+  const imgUrl = pageImg ? pageImg : defaultImg
   const imgWidth = pageImgWidth ? pageImgWidth : 1280
   const imgHeight = pageImgHeight ? pageImgHeight : 640
 
@@ -39,11 +39,6 @@ const HMeta = ({
       <meta property="og:image:width" content={String(imgWidth)} />
       <meta property="og:image:height" content={String(imgHeight)} />
       <meta name="twitter:card" content={imgUrl} />
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link
-        href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&amp;display=swap"
-        rel="stylesheet"
-      />
       <link rel="icon" href="/favicon.ico" />
       <link rel="canonical" href={url} />
     </Head>
