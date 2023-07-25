@@ -14,6 +14,8 @@ import {
     useDisclosure,
     Text
 } from "@chakra-ui/react";
+import Link from "next/link";
+
 export default function VARIUSHeader() {
     const [width, setWidth] = useState<number>(0);
     useEffect(() => {
@@ -24,10 +26,12 @@ export default function VARIUSHeader() {
     }, [width]);
 
     return (
-        <Box bg={"#000"} color={"#fff"} p={3}>
+        <Box bg={"#000012"} color={"#fff"} p={3}>
             <Flex>
                 <Flex w={"50%"} p={3} alignContent={"center"}>
-                    VARIUS
+                    <Link href={"/"}>
+                        <Text fontSize={"xl"}>VARIUS projects.</Text>
+                    </Link>
                 </Flex>
                 <Flex w={"50%"} justifyContent={"flex-end"} alignItems={"center"}>
                     <LightMenu />
@@ -44,7 +48,7 @@ const LightMenu = () => {
     return (
         <Box>
             <Button ref={btnRef} colorScheme='black' onClick={onOpen}>
-                Open
+                Menu
             </Button>
             <Drawer
                 isOpen={isOpen}
@@ -53,16 +57,19 @@ const LightMenu = () => {
                 finalFocusRef={btnRef}
             >
                 <DrawerOverlay />
-                <DrawerContent>
+                <DrawerContent 
+                backgroundColor={"#000016"}
+                color={"#fff"}>
                     <DrawerCloseButton />
                     <DrawerHeader>Menu</DrawerHeader>
 
                     <DrawerBody>
-                        <Text>YOYOYO</Text>
+                        <Text>Product</Text>
+                        <Text>メニュー作ってるなう</Text>
                     </DrawerBody>
 
                     <DrawerFooter>
-                        <Button variant='outline' mr={3} onClick={onClose} colorScheme="blue">
+                        <Button variant='outline' mr={3} onClick={onClose} colorScheme="white">
                             Close
                         </Button>
                     </DrawerFooter>

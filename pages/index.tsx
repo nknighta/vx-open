@@ -1,11 +1,13 @@
-import React from "react";
+import {ReactNode} from "react";
 import ThreeBox from "../components/threebox";
-import VARIUSHeader from "../components/header";
-export default function Index() {
-        
+import HMeta from "components/headmeta";
+import Layout from "layout/main";
+import { Flex } from "@chakra-ui/react";
+
+export default function Home () {
     return (
         <>
-            <VARIUSHeader/>
+            <HMeta pageTitle={"Home"} />
             <div style={{
                 display: "flex",
                 justifyContent: "center",
@@ -34,6 +36,17 @@ export default function Index() {
                     Welcome Web3 development.
                 </div>
             </div>
-       </>
+            <Flex justifyContent={"center"} color={"#fff"} fontSize={35}>
+                Make Platform now!
+            </Flex>
+        </>
+    );
+};
+
+Home.getLayout = (page: ReactNode) => {
+    return (
+        <Layout>
+            <Home />
+        </Layout>
     )
-}
+};

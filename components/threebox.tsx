@@ -19,7 +19,7 @@ const TestBox= ({props}:any) => {
 const ThreeBox = () => {
     return (
         <Canvas style={{
-            height: "80vh",
+            height: "60vh",
         }}>
             <ambientLight />
             <color attach="background" args={["#000000"]} />

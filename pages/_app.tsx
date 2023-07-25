@@ -1,22 +1,22 @@
-import { NextPage } from 'next'
-import { AppProps } from 'next/app'
-import React from 'react'
-import { ChakraProvider } from '@chakra-ui/react';
+import "./global.css";
+import { ReactElement, ReactNode } from "react";
+import { NextPage } from "next";
+import type { AppProps } from "next/app";
 
 type NextPageWithLayout = NextPage & {
-    getLayout?: (page: React.ReactElement) => React.ReactNode
-}
+  getLayout?: (page: ReactElement) => ReactNode;
+};
 
 type AppPropsWithLayout = AppProps & {
-    Component: NextPageWithLayout
-}
+  Component: NextPageWithLayout;
+};
 
-export default function _App({ Component, pageProps }: AppPropsWithLayout) {
-    const getLayout = Component.getLayout ?? ((page) => page)
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout =
+    Component.getLayout ||
+    ((page) => {
+      return page;
+    });
 
-    return getLayout(
-        <ChakraProvider>
-            <Component {...pageProps} />
-        </ChakraProvider>
-    )
+  return getLayout(<Component {...pageProps} />);
 }
