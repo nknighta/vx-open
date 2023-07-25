@@ -6,7 +6,8 @@ const HMeta = ({
   pagePath,
   pageImg,
   pageImgWidth,
-  pageImgHeight
+  pageImgHeight,
+  tpageImg,
 }: {
     pageTitle?: string
     pageDescription?: string
@@ -14,6 +15,7 @@ const HMeta = ({
     pageImg: any
     pageImgWidth?: number
     pageImgHeight?: number
+    tpageImg: any
 }) => {
   const defaultTitle = 'VARIUS'
   const defaultDescription = 'Web3 development'
@@ -38,6 +40,7 @@ const HMeta = ({
       <meta property="og:image" content={imgUrl} />
       <meta property="og:image:width" content={String(imgWidth)} />
       <meta property="og:image:height" content={String(imgHeight)} />
+      <meta name="twitter:image" content={tpageImg} />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
         href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&amp;display=swap"
