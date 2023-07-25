@@ -14,7 +14,10 @@ export default function Home () {
                 pageImg={prevImg}
                 pageImgWidth={1280}
                 pageImgHeight={720}
-                pagePath="https://varius.technology/"
+                tpageImg={"https://varius.technology/" + prevImg}
+                tpageImgWidth={1280}
+                tpageImgHeight={720}
+                pagePath="https://varius.technology/images/header.png"
                 pageDescription="Hello World!"
             />
             <div style={{
