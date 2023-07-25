@@ -11,10 +11,9 @@ export default function Home () {
         <>
             <HMeta 
                 pageTitle={"Welcome"} 
-                pageImg={prevImg}
+                pageImg={"https://varius.technology/images/header.png"}
                 pageImgWidth={1280}
                 pageImgHeight={720}
-                tpageImg={"https://varius.technology/header.png"}
                 pagePath="https://varius.technology/"
                 pageDescription="Hello World!"
             />
