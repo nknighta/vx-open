@@ -11,7 +11,7 @@ const HMeta = ({
     pageTitle?: string
     pageDescription?: string
     pagePath?: string
-    pageImg?: string
+    pageImg: any
     pageImgWidth?: number
     pageImgHeight?: number
 }) => {
@@ -43,6 +43,7 @@ const HMeta = ({
         href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&amp;display=swap"
         rel="stylesheet"
       />
+      <link rel="icon" href="/favicon.ico" />
       <link rel="canonical" href={url} />
     </Head>
   )

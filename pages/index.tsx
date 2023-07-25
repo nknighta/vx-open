@@ -3,6 +3,7 @@ import ThreeBox from "components/threebox";
 import HMeta from "components/headmeta";
 import Layout from "layout/main";
 import { Flex } from "@chakra-ui/react";
+import prevImg from "public/images/header.png";
 
 export default function Home () {
     
@@ -10,9 +11,11 @@ export default function Home () {
         <>
             <HMeta 
                 pageTitle={"Welcome"} 
-                pageImg="/images/header.png"
+                pageImg={prevImg}
                 pageImgWidth={1280}
                 pageImgHeight={720}
+                pagePath="https://varius.technology/"
+                pageDescription="Hello World!"
             />
             <div style={{
                 display: "flex",
