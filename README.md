@@ -1,4 +1,6 @@
-# NextJS Typescript + Threejs Sample
+# VX 
 
-ReactとかNextJSの学習用です。
-頻繁にコミットしてるのですごいへんなコードになっるとおもいます。(T▽T;)
+> awesome web3 development platform
+
+website
+(comming soon)[]
