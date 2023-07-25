@@ -1,10 +1,7 @@
-import React ,{useState}from "react";
-import { Box, Text, Flex } from "@chakra-ui/react";
+import React from "react";
 import ThreeBox from "../components/threebox";
 import VARIUSHeader from "../components/header";
-import Footer from "../components/footer";
 export default function Index() {
-    const backColor:string = "#ff333322";
         
     return (
         <>
@@ -37,7 +34,6 @@ export default function Index() {
                     Welcome Web3 development.
                 </div>
             </div>
-            <Footer/>
        </>
     )
 }
