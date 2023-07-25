@@ -15,8 +15,8 @@ const HMeta = ({
     pageImgWidth?: number
     pageImgHeight?: number
 }) => {
-  const defaultTitle = 'V'
-  const defaultDescription = 'demo'
+  const defaultTitle = 'VARIUS'
+  const defaultDescription = 'Web3 development'
 
   const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle
   const description = pageDescription ? pageDescription : defaultDescription

@@ -1,13 +1,19 @@
-import {ReactNode} from "react";
-import ThreeBox from "../components/threebox";
+import {ReactNode ,useEffect,useState} from "react";
+import ThreeBox from "components/threebox";
 import HMeta from "components/headmeta";
 import Layout from "layout/main";
 import { Flex } from "@chakra-ui/react";
 
 export default function Home () {
+    
     return (
         <>
-            <HMeta pageTitle={"Home"} />
+            <HMeta 
+                pageTitle={"Welcome"} 
+                pageImg="/images/header.png"
+                pageImgWidth={1280}
+                pageImgHeight={720}
+            />
             <div style={{
                 display: "flex",
                 justifyContent: "center",
