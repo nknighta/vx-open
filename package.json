@@ -3,16 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start"
-    },
+  "scripts": {
+    "dev": "next dev --turbo",
+    "build": "next build",
+    "start": "next start"
+  },
   "dependencies": {
+    "@babel/plugin-proposal-do-expressions": "^7.22.5",
     "@chakra-ui/next-js": "^2.1.4",
     "@chakra-ui/react": "^2.7.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@mdx-js/loader": "^2.3.0",
     "@react-three/drei": "^9.78.2",
     "@react-three/fiber": "^8.13.5",
     "@types/next": "^9.0.0",

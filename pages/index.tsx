@@ -4,14 +4,9 @@ import HMeta from "components/headmeta";
 import Layout from "layout/main";
 import { Flex } from "@chakra-ui/react";
 
-export default function Home () {
-    
+const Home =  () => {
     return (
         <>
-            <HMeta 
-                pageTitle={"Welcome"}
-                pageDescription={"Web3 development"}
-            />
             <div style={{
                 display: "flex",
                 justifyContent: "center",
@@ -50,7 +45,14 @@ export default function Home () {
 Home.getLayout = (page: ReactNode) => {
     return (
         <Layout>
+            <HMeta
+                pageTitle={"Welcome"}
+                pageDescription={"Web3 development"}
+                pageImg={"https://www.varius.technology/images/header.png"}
+            />
             <Home />
         </Layout>
     )
 };
+
+export default Home;

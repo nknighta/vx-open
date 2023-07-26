@@ -9,7 +9,7 @@ interface Props {
     children: React.ReactNode;
 };
 
-const Layout: React.FC<Props> = ({children}) => {
+const Layout: React.FC<Props> = ({children}:any) => {
     const [width, setWidth] = useState<number>(0);
     const [successload, setSuccessload]
         : [boolean, React.Dispatch<React.SetStateAction<boolean>>]

@@ -3,4 +3,5 @@
 > awesome web3 development platform
 
 website
-(comming soon)[]
+
+[Welcome | VARIUS](https://varius.technology)
