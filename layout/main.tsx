@@ -9,13 +9,11 @@ interface Props {
     children: React.ReactNode;
 };
 
-const Layout: React.FC<Props> = ({children}:any) => {
+const Layout: React.FC<Props> = ({children}) => {
     const [width, setWidth] = useState<number>(0);
-    const [successload, setSuccessload]
-        : [boolean, React.Dispatch<React.SetStateAction<boolean>>]
-        = useState<boolean>(false);
+    const [successload, setSuccessload] = useState<boolean>(false);
     const LoardPrev:React.ComponentType<{}> = dynamic(() =>
-            import("layout/load").then(modules => modules.default)
+            import("layout/load")
         , {ssr: false});
     useEffect(() => {
         setTimeout(() => {
