@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import {DefaultSeo} from 'next-seo';
+import {requirePage} from "next/dist/server/require";
 
 const HMeta = ({
   pageTitle,
@@ -24,7 +26,7 @@ const HMeta = ({
   const imgUrl = pageImg ? pageImg : defaultImg
   const imgWidth = pageImgWidth ? pageImgWidth : 1280
   const imgHeight = pageImgHeight ? pageImgHeight : 640
-
+    const imgx = require("/images/favicon.ico");
   return (
     <Head>
       <title>{title}</title>
@@ -39,8 +41,30 @@ const HMeta = ({
       <meta property="og:image:width" content={String(imgWidth)} />
       <meta property="og:image:height" content={String(imgHeight)} />
       <meta name="twitter:card" content={imgUrl} />
-      <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={imgx} sizes="any" />
       <link rel="canonical" href={url} />
+        <DefaultSeo
+            title={title}
+            openGraph={{
+                url: url,
+                title: title,
+                description: description,
+                images: [
+                    {
+                        url: imgUrl,
+                        width: imgWidth,
+                        height: imgHeight,
+                        alt: title,
+                        type: 'image/png'
+                    }
+                ]
+            }}
+            twitter={{
+                handle: '@ama_dev_1',
+                site: url,
+                cardType: 'summary_large_image',
+            }}
+        />
     </Head>
   )
 }

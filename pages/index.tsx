@@ -49,6 +49,8 @@ Home.getLayout = (page: ReactNode) => {
                 pageTitle={"Welcome"}
                 pageDescription={"Web3 development"}
                 pageImg={"https://www.varius.technology/images/header.png"}
+                pageImgWidth={1200}
+                pageImgHeight={720}
             />
             <Home />
         </Layout>
