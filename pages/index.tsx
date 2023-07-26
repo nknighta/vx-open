@@ -1,12 +1,27 @@
 import {ReactNode ,useEffect,useState} from "react";
 import ThreeBox from "components/threebox";
-import HMeta from "components/headmeta";
+import CommonMeta from "components/headmeta";
 import Layout from "layout/main";
 import { Flex } from "@chakra-ui/react";
+
+type Props = {
+    title: string
+    description: string
+    url: string
+    type: string
+    imageUrl: string
+}
 
 const Home =  () => {
     return (
         <>
+            <CommonMeta
+                title={"Welcome - VARIUS"}
+                description={"VARIUS"}
+                url={"https://varius.world"}
+                type={"website"}
+                imageUrl={"https://varius.world/images/header.png"}
+            />
             <div style={{
                 display: "flex",
                 justifyContent: "center",
@@ -45,13 +60,6 @@ const Home =  () => {
 Home.getLayout = (page: ReactNode) => {
     return (
         <Layout>
-            <HMeta
-                pageTitle={"Welcome"}
-                pageDescription={"Web3 development"}
-                pageImg={"https://www.varius.technology/header.png"}
-                pageImgWidth={1200}
-                pageImgHeight={720}
-            />
             <Home />
         </Layout>
     )
