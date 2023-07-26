@@ -26,7 +26,6 @@ const HMeta = ({
   const imgUrl = pageImg ? pageImg : defaultImg
   const imgWidth = pageImgWidth ? pageImgWidth : 1280
   const imgHeight = pageImgHeight ? pageImgHeight : 640
-    const imgx = require("/images/favicon.ico");
   return (
     <Head>
       <title>{title}</title>
