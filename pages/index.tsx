@@ -48,7 +48,7 @@ Home.getLayout = (page: ReactNode) => {
             <HMeta
                 pageTitle={"Welcome"}
                 pageDescription={"Web3 development"}
-                pageImg={"https://www.varius.technology/images/header.png"}
+                pageImg={"https://www.varius.technology/header.png"}
                 pageImgWidth={1200}
                 pageImgHeight={720}
             />
