@@ -14,7 +14,7 @@ type Props = {
 
 const Home =  () => {
     return (
-        <Layout>
+        <>
             <CommonMeta
                 title={"Welcome - VARIUS"}
                 description={"VARIUS"}
@@ -53,7 +53,7 @@ const Home =  () => {
             <Flex justifyContent={"center"} color={"#fff"} fontSize={35}>
                 Make Platform now!
             </Flex>
-        </Layout>
+        </>
     );
 };
 
