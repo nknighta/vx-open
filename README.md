@@ -10,4 +10,4 @@ website
 
 VX is a developer's platform that we are developing to lower the technical and economic hurdles to developing Web3 applications.
 
-Hosting by Vercel
+Hosting by [Vercel](https://vercel.com/)
