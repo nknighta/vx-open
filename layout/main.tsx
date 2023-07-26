@@ -1,48 +1,57 @@
-import React, { useEffect, useState } from "react";
-import { theme } from "../components/chakra-extends";
-import { ChakraProvider } from "@chakra-ui/react";
+import React, {useEffect, useState} from "react";
+import {theme} from "../components/chakra-extends";
+import {ChakraProvider} from "@chakra-ui/react";
 import VARIUSHeader from "components/header";
 import Footer from "layout/footer";
+import dynamic from "next/dynamic";
+
 interface Props {
     children: React.ReactNode;
 };
 
-const Layout: React.FC<Props> = ({ children }) => {
+const GloblColor = ({children}:any) => {
+    return (
+        <div style={{
+            backgroundColor: "#000021",
+        }}>
+            {children}
+        </div>
+    )
+}
+
+const Layout: React.FC<Props> = ({children}) => {
     const [width, setWidth] = useState<number>(0);
-    const [successload, setSuccessload] = useState<boolean>(false);
+    const [successload, setSuccessload]
+        : [boolean, React.Dispatch<React.SetStateAction<boolean>>]
+        = useState<boolean>(false);
+    const LoardPrev:React.ComponentType<{}> = dynamic(() =>
+            import("layout/load").then(modules => modules.default)
+        , {ssr: false});
     useEffect(() => {
         setTimeout(() => {
             setSuccessload(true);
         }, 1000);
-    }, [successload]);
-    useEffect(() => {
         setWidth(window.innerWidth);
         window.addEventListener("resize", () => {
             setWidth(window.innerWidth);
         })
-    }, [width]);
+    }, [successload, width]);
     return (
         <div style={{
             backgroundColor: "#000021",
             height: "100vh",
         }}>
             {successload ?
+                // loading: true
                 <ChakraProvider theme={theme}>
-                    <VARIUSHeader />
+                    <VARIUSHeader/>
                     {children}
-                    <Footer />
+                    <Footer/>
                 </ChakraProvider>
-                : <div style={{
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: "100vh",
-                    color: "#fff",
-                    backgroundColor: "#000021",
-                }}>
-                    <h1>Loding...</h1>
-                </div>}
+                :
+                // loading and ssr: false
+                <LoardPrev/>
+            }
         </div>
     );
 };

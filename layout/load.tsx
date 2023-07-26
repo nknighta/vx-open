@@ -1,6 +1,6 @@
-export default function Home() {
+export default function Load() {
     return (
-        <div style={{
+        <div  style={{
             width: "100%",
             display: "flex",
             justifyContent: "center",
