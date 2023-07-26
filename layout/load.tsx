@@ -10,7 +10,6 @@ export default function Load() {
             color: "#fff",
             backgroundColor: "#000021",
         }}>
-            <HMeta/>
             <h1>Loding...</h1>
         </div>
     );
