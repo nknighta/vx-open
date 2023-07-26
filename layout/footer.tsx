@@ -6,9 +6,8 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
     return (
         <footer style={{
-            height: "auto",
+            background: "#000021",
         }}>
-            <Box h={16}/>
             <Box
                 background={"#000021"}
                 color={"#fff"}
@@ -19,7 +18,8 @@ const Footer = () => {
                     </Link>
                 </Flex>
                 <Box h={10}/>
-                <Flex justifyContent={"center"}>
+                <Flex justifyContent={"center"}
+                      background={"#000021"}>
                     <p>@Nknight AMAMIYA 2023 - {currentYear}</p>
                 </Flex>
             </Box>

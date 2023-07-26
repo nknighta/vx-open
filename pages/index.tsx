@@ -17,7 +17,7 @@ const Home =  () => {
         <>
             <HMeta pageTitle={"Welcome"} pagePath={"/"}/>
             <Head>
-                <meta property="og:image" content={"/header.png"} />
+                <meta name="twitter:image" content="https://varius.technology/header.png" />
             </Head>
             <div style={{
                 display: "flex",
@@ -50,24 +50,9 @@ const Home =  () => {
             <Flex justifyContent={"center"} color={"#fff"} fontSize={35}>
                 Make Platform now!
             </Flex>
-            <Container color={"#fff"}>
-                <Box background={"#dddddd"} color={"#000"} display={displaymode} m={5}>
-                    <Box w={"50vh"}>
-                        Tools
-                    </Box>
-                    <Box w={"50vh"}>
-                        Apps
-                    </Box>
-                </Box>
-                <Box display={displaymode} background={"#dddddd"} color={"#000"} m={5}>
-                    <Box w={"50vh"}>
-                        Docs
-                    </Box>
-                    <Box w={"50vh"}>
-                        Extensions
-                    </Box>
-                </Box>
-            </Container>
+            <Box h={200}>
+
+            </Box>
         </>
     );
 };
