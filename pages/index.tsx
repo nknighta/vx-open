@@ -18,9 +18,9 @@ const Home =  () => {
             <CommonMeta
                 title={"Welcome - VARIUS"}
                 description={"VARIUS"}
-                url={"https://varius.world"}
+                url={"https://varius.technology"}
                 type={"website"}
-                imageUrl={"https://varius.world/images/header.png"}
+                imageUrl={"https://varius.technology/images/header.png"}
             />
             <div style={{
                 display: "flex",
