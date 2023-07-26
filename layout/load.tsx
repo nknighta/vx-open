@@ -1,3 +1,4 @@
+import HMeta from "../components/headmeta";
 export default function Load() {
     return (
         <div  style={{
@@ -9,6 +10,7 @@ export default function Load() {
             color: "#fff",
             backgroundColor: "#000021",
         }}>
+            <HMeta/>
             <h1>Loding...</h1>
         </div>
     );

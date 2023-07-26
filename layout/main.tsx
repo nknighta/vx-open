@@ -9,16 +9,6 @@ interface Props {
     children: React.ReactNode;
 };
 
-const GloblColor = ({children}:any) => {
-    return (
-        <div style={{
-            backgroundColor: "#000021",
-        }}>
-            {children}
-        </div>
-    )
-}
-
 const Layout: React.FC<Props> = ({children}) => {
     const [width, setWidth] = useState<number>(0);
     const [successload, setSuccessload]
