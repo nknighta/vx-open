@@ -7,6 +7,7 @@ import { Flex } from "@chakra-ui/react";
 const Home =  () => {
     return (
         <>
+            <HMeta pageTitle={"Welcome"} pageImg={"/header.png"} pagePath={"/"}/>
             <div style={{
                 display: "flex",
                 justifyContent: "center",
