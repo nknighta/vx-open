@@ -43,28 +43,6 @@ const HMeta = ({
       <meta name="twitter:card" content={imgUrl} />
         <link rel="icon" href={"https://varius.technology/favicon.ico"} sizes="any" />
       <link rel="canonical" href={url} />
-        <DefaultSeo
-            title={title}
-            openGraph={{
-                url: url,
-                title: title,
-                description: description,
-                images: [
-                    {
-                        url: imgUrl,
-                        width: imgWidth,
-                        height: imgHeight,
-                        alt: title,
-                        type: 'image/png'
-                    }
-                ]
-            }}
-            twitter={{
-                handle: '@ama_dev_1',
-                site: url,
-                cardType: 'summary_large_image',
-            }}
-        />
     </Head>
   )
 }
