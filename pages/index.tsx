@@ -15,7 +15,13 @@ const Home =  () => {
     const displaymode= width > 950 ? "flex" : "block";
     return (
         <>
-            <HMeta pageTitle={"Welcome"} pagePath={"/"}/>
+            <HMeta
+                pageTitle={'Welcome'}
+                pageDescription={'site description'}
+                pageImg={'https://varius.technology/header.png'}
+                pageImgWidth={1280}
+                pageImgHeight={960}
+            />
             <Head>
                 <meta name="twitter:image" content="https://varius.technology/header.png" />
             </Head>
