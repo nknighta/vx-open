@@ -40,7 +40,7 @@ const HMeta = ({
       <meta property="og:image" content={imgUrl} />
       <meta property="og:image:width" content={String(imgWidth)} />
       <meta property="og:image:height" content={String(imgHeight)} />
-      <meta name="twitter:card" content={imgUrl} />
+        <meta name="twitter:image" content="https://varius.technology/header.png" />
         <link rel="icon" href={"https://varius.technology/favicon.ico"} sizes="any" />
       <link rel="canonical" href={url} />
     </Head>
