@@ -41,7 +41,9 @@ const HMeta = ({
       <meta property="og:image:width" content={String(imgWidth)} />
       <meta property="og:image:height" content={String(imgHeight)} />
         <meta name="twitter:image" content="https://dev.varius.technology/header.png" />
-        <link rel="icon" href={"https://varius.technology/favicon.ico"} sizes="any" />
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:site" content="@ama_dev_1"/>
+        <link rel="icon" href={"https://dev.varius.technology/favicon.ico"} sizes="any" />
       <link rel="canonical" href={url} />
     </Head>
   )
