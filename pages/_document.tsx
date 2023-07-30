@@ -3,10 +3,6 @@ import React, {useEffect} from "react";
 import Link from "next/link";
 import {Box,Text} from "@chakra-ui/react";
 import MetaDataElement from "components/headmeta";
-export const config = {
-    runtime: 'edge',
-};
-
 const MyDocument = () => {
     return (
         <Html>
