@@ -12,7 +12,7 @@ const Home = () => {
             <HMeta
                 pageTitle={'Welcome'}
                 pageDescription={'OH YES'}
-                pageImg={'https://varius.technology/header.png'}
+                pageImg={'https://dev.varius.technology/header.png'}
                 pageImgWidth={1280}
                 pageImgHeight={960}
             />
