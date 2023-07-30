@@ -14,7 +14,6 @@ export default function IndexElementLayout() {
             fontFamily: `"REM", sans-serif`,
             fontSize: 50,
             wordWrap: "break-word",
-            width: "70vh",
             padding : padding,
         }}>
             Low cost and short time <wbr/>
