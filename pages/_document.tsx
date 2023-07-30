@@ -6,7 +6,20 @@ import {Box,Text} from "@chakra-ui/react";
 const MyDocument = () => {
     return (
         <Html>
-            <Head/>
+            <Head>
+                <Head>
+                    <title>VARIUS - development</title>
+                    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+                    <meta name="description" content={"Dev"} />
+                    <meta property="og:type" content="website" />
+                    <meta property="og:image" content={"https://dev.varius.technology/header.png"} />
+                    <meta name="twitter:image" content="https://dev.varius.technology/header.png" />
+                    <meta name="twitter:card" content="summary_large_image"/>
+                    <meta name="twitter:site" content="@ama_dev_1"/>
+                    <link rel="icon" href={"https://dev.varius.technology/favicon.ico"} sizes="any" />
+
+                </Head>
+            </Head>
             <body style={{
                 height: "auto",
                 background: "#000021",
