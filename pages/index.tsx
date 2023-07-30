@@ -11,8 +11,8 @@ const Home = () => {
             <link href="https://fonts.googleapis.com/css2?family=REM:wght@500&display=swap" rel="stylesheet"></link>
             <HMeta
                 pageTitle={'Welcome'}
-                pageDescription={'site description'}
-                pageImg={'/header.png'}
+                pageDescription={'OH YES'}
+                pageImg={'https://varius.technology/header.png'}
                 pageImgWidth={1280}
                 pageImgHeight={960}
             />
