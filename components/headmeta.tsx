@@ -2,20 +2,22 @@ import Head from 'next/head'
 import {DefaultSeo} from 'next-seo';
 import {requirePage} from "next/dist/server/require";
 
-const HMeta = ({
-  pageTitle,
-  pageDescription,
-  pagePath,
-  pageImg,
-  pageImgWidth,
-  pageImgHeight,
-}: {
+interface MetaProps {
     pageTitle?: string
     pageDescription?: string
     pagePath?: string
     pageImg?: any
     pageImgWidth?: number
     pageImgHeight?: number
+}
+
+const HMeta : React.FC<MetaProps> = ({
+  pageTitle,
+  pageDescription,
+  pagePath,
+  pageImg,
+  pageImgWidth,
+  pageImgHeight,
 }) => {
   const defaultTitle = 'VARIUS'
   const defaultDescription = 'Web3 development'
