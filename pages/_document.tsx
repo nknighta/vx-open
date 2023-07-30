@@ -2,14 +2,16 @@ import {Html,Main,NextScript,Head} from "next/document";
 import React, {useEffect} from "react";
 import Link from "next/link";
 import {Box,Text} from "@chakra-ui/react";
-import HMeta from "components/headmeta";
-import {metaprops} from "@/index";
+import MetaDataElement from "components/headmeta";
+export const config = {
+    runtime: 'edge',
+};
 
 const MyDocument = () => {
     return (
         <Html>
             <Head>
-                <HMeta {...metaprops}/>
+                <MetaDataElement/>
             </Head>
             <body style={{
                 height: "auto",
@@ -67,5 +69,4 @@ const Footer = () => {
         </footer>
     )
 };
-
 export default MyDocument;

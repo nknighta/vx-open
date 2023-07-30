@@ -5,17 +5,17 @@ import Layout from "layout/main";
 import IndexElementLayout from "layout/indexpage/indexElementLayout";
 import {GltfLoadElement} from "../components/gltfLoadElement";
 
-export const metaprops = {
-    pageTitle : 'Home',
-    pageDescription :'Welcome to VARIUS',
-}
+export const MetaDataElement = () => {
+    return (
+        <HMeta pageTitle={"Home"} pagePath={"/"} pageImg={"/header.png"}/>
+    )
+};
+
 const Home = () => {
     return (
         <>
             <link href="https://fonts.googleapis.com/css2?family=REM:wght@500&display=swap" rel="stylesheet"></link>
-            <HMeta
-                {...metaprops}
-            />
+            <MetaDataElement/>
             <ThreeBox/>
             <IndexElementLayout/>
             <GltfLoadElement/>
