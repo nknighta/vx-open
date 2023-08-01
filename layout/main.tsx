@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {theme} from "../components/chakra-extends";
 import {ChakraProvider} from "@chakra-ui/react";
-import VARIUSHeader from "components/header";
-import Footer from "layout/footer";
 import dynamic from "next/dynamic";
+import VARIUSHeader from "../components/header";
 
 interface Props {
     children: React.ReactNode;
@@ -19,22 +18,15 @@ const Layout: React.FC<Props> = ({children}) => {
         setTimeout(() => {
             setSuccessload(true);
         }, 1000);
-        setWidth(window.innerWidth);
-        window.addEventListener("resize", () => {
-            setWidth(window.innerWidth);
-        })
+
     }, [successload, width]);
     return (
-        <div style={{
-            backgroundColor: "#000021",
-            height: "100vh",
-        }}>
+        <div>
             {successload ?
                 // loading: true
                 <ChakraProvider theme={theme}>
                     <VARIUSHeader/>
                     {children}
-                    <Footer/>
                 </ChakraProvider>
                 :
                 // loading and ssr: false
