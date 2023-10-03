@@ -34,7 +34,7 @@ export default function VARIUSHeader() {
                     </Link>
                 </Flex>
                 <Flex w={"50%"} justifyContent={"flex-end"} alignItems={"center"}>
-                    <LightMenu />
+                    site ver: 0.7
                 </Flex>
                 
             </Flex>
@@ -65,48 +65,12 @@ const LightMenu = () => {
 
                     <DrawerBody>
                         <Text>Product</Text>
-                        <Text>メニュー作ってるなう</Text>
                     </DrawerBody>
 
                     <DrawerFooter>
                         <Button variant='outline' mr={3} onClick={onClose} colorScheme="white">
                             Close
                         </Button>
-                    </DrawerFooter>
-                </DrawerContent>
-            </Drawer>
-        </Box>
-    )
-};
-
-const LightMenuDesktop = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const btnRef = React.useRef()
-    return (
-        <Box w={"50%"}>
-            <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
-                Open
-            </Button>
-            <Drawer
-                isOpen={isOpen}
-                placement='right'
-                onClose={onClose}
-                finalFocusRef={btnRef}
-            >
-                <DrawerOverlay />
-                <DrawerContent>
-                    <DrawerCloseButton />
-                    <DrawerHeader>Create your account</DrawerHeader>
-
-                    <DrawerBody>
-                        <Input placeholder='Type here...' />
-                    </DrawerBody>
-
-                    <DrawerFooter>
-                        <Button variant='outline' mr={3} onClick={onClose}>
-                            Cancel
-                        </Button>
-                        <Button colorScheme='blue'>Save</Button>
                     </DrawerFooter>
                 </DrawerContent>
             </Drawer>

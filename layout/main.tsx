@@ -9,29 +9,12 @@ interface Props {
 };
 
 const Layout: React.FC<Props> = ({children}) => {
-    const [width, setWidth] = useState<number>(0);
-    const [successload, setSuccessload] = useState<boolean>(false);
-    const LoardPrev:React.ComponentType<{}> = dynamic(() =>
-            import("layout/load")
-        , {ssr: false});
-    useEffect(() => {
-        setTimeout(() => {
-            setSuccessload(true);
-        }, 1000);
-
-    }, [successload, width]);
     return (
         <div>
-            {successload ?
-                // loading: true
-                <ChakraProvider theme={theme}>
-                    <VARIUSHeader/>
-                    {children}
-                </ChakraProvider>
-                :
-                // loading and ssr: false
-                <LoardPrev/>
-            }
+            <ChakraProvider theme={theme}>
+                <VARIUSHeader/>
+                {children}
+            </ChakraProvider>
         </div>
     );
 };
