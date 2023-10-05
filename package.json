@@ -1,6 +1,6 @@
 {
   "name": "vx",
-  "version": "1.0.0",
+  "version": "0.7.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -20,7 +20,7 @@
     "@types/node": "^20.4.2",
     "@types/react": "^18.2.14",
     "@types/three": "^0.154.0",
-    "@vercel/analytics": "^1.0.1",
+    "@vercel/analytics": "^1.0.2",
     "@vercel/og": "^0.5.9",
     "framer-motion": "^10.12.18",
     "next": "^13.4.9",
