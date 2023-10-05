@@ -2,13 +2,11 @@ import {Html,Main,NextScript,Head} from "next/document";
 import React, {useEffect} from "react";
 import Link from "next/link";
 import {Box,Text} from "@chakra-ui/react";
-import { Analytics } from '@vercel/analytics/react';
 
 const MyDocument = () => {
     // test mode
     return (
         <Html>
-            <Analytics/>
             <Head>
                 <title>Home - VARIUS</title>
                 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
