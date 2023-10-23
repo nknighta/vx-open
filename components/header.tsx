@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import {
     Box,
     Button,
@@ -15,18 +15,30 @@ import {
     Text
 } from "@chakra-ui/react";
 import Link from "next/link";
+import {getWindowWidth} from "../scripts/getWidth";
+
+// breakpoint is 850px
+// desktop menu is LightMenuDesktop
+// mobile menu is LightMenu
+
+// link array for title text
+const pages = [
+    {id: 1, name: "software", page: "/software"},
+];
 
 export default function VARIUSHeader() {
-    const [width, setWidth] = useState<number>(0);
-    useEffect(() => {
-        setWidth(window.innerWidth);
-        window.addEventListener("resize", () => {
-            setWidth(window.innerWidth);
-        });
-    }, [width]);
+    const width:number = getWindowWidth();
+    const dpadding = width > 990 ? "10vh" : "3vh";
 
+    const ResponseHeaderLayout = () => {
+        if (width > 850) {
+            return <LightMenuDesktop/>;
+        } else {
+            return <LightMenu/>;
+        }
+    };
     return (
-        <Box bg={"#000012"} color={"#fff"} p={3}>
+        <Box bg={"#000012"} color={"#fff"} p={3} pl={dpadding} pr={dpadding}>
             <Flex>
                 <Flex w={"50%"} p={3} alignContent={"center"}>
                     <Link href={"/"}>
@@ -34,16 +46,16 @@ export default function VARIUSHeader() {
                     </Link>
                 </Flex>
                 <Flex w={"50%"} justifyContent={"flex-end"} alignItems={"center"}>
-                    site ver: 0.7
+                    <ResponseHeaderLayout/>
                 </Flex>
-                
+
             </Flex>
         </Box>
     )
 };
 
 const LightMenu = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const {isOpen, onOpen, onClose} = useDisclosure();
     const btnRef = React.useRef()
     return (
         <Box>
@@ -56,15 +68,30 @@ const LightMenu = () => {
                 onClose={onClose}
                 finalFocusRef={btnRef}
             >
-                <DrawerOverlay />
-                <DrawerContent 
-                backgroundColor={"#000016"}
-                color={"#fff"}>
-                    <DrawerCloseButton />
+                <DrawerOverlay/>
+                <DrawerContent
+                    backgroundColor={"#000016"}
+                    color={"#fff"}>
+                    <DrawerCloseButton/>
                     <DrawerHeader>Menu</DrawerHeader>
 
                     <DrawerBody>
-                        <Text>Product</Text>
+                        {
+                            pages.map(
+                                linkvalue => {
+                                    return (
+                                        <div key={linkvalue.id}>
+                                            <Link as={`/${linkvalue.name}`}
+                                                  href={`${linkvalue.page}`} style={{
+                                                padding: 10
+                                            }}>
+                                                {linkvalue.name}
+                                            </Link>
+                                        </div>
+                                    );
+                                }
+                            )
+                        }
                     </DrawerBody>
 
                     <DrawerFooter>
@@ -75,5 +102,31 @@ const LightMenu = () => {
                 </DrawerContent>
             </Drawer>
         </Box>
+    )
+};
+
+
+// for desktop link element
+// map and array
+function LightMenuDesktop() {
+    return (
+        <>
+            {
+                pages.map(
+                    linkvalue => {
+                        return (
+                            <div key={linkvalue.id}>
+                                <Link as={`/${linkvalue.name}`}
+                                      href={`${linkvalue.page}`} style={{
+                                          padding: 10
+                                        }}>
+                                    {linkvalue.name}
+                                </Link>
+                            </div>
+                        );
+                    }
+                )
+            }
+        </>
     )
 };
