@@ -3,16 +3,16 @@ import React, {useEffect} from "react";
 import Link from "next/link";
 import {Box,Text} from "@chakra-ui/react";
 import { Analytics } from '@vercel/analytics/react';
-
+import HMeta from "components/headmeta";
 const MyDocument = () => {
     // test mode
     return (
         <Html>
             <Analytics />
             <Head>
-                <title>Home - VARIUS</title>
+                <title>VARIUS</title>
                 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-                <meta name="description" content={"Home - VARIUS"} />
+                <meta name="description" content={"VARIUS"} />
                 <meta property="og:url" content={"https://dev.varius.technology"} />
                 <meta property="og:title" content={"Home - VARIUS"} />
                 <meta property="og:site_name" content={"VARIUS Awesome web3 development"} />
