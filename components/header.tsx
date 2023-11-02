@@ -16,6 +16,8 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import {getWindowWidth} from "../scripts/getWidth";
+import AccountDisp from "../components/accountDisp";
+import {HamburgerIcon} from "@chakra-ui/icons";
 
 // breakpoint is 850px
 // desktop menu is LightMenuDesktop
@@ -47,8 +49,8 @@ export default function VARIUSHeader() {
                 </Flex>
                 <Flex w={"50%"} justifyContent={"flex-end"} alignItems={"center"}>
                     <ResponseHeaderLayout/>
+                    <AccountDisp />
                 </Flex>
-
             </Flex>
         </Box>
     )
@@ -59,8 +61,8 @@ const LightMenu = () => {
     const btnRef = React.useRef()
     return (
         <Box>
-            <Button ref={btnRef} colorScheme='black' onClick={onOpen}>
-                Menu
+            <Button ref={btnRef} colorScheme='black' onClick={onOpen} fontSize={30} w={45} h={45} ml={4} mr={4}>
+                <HamburgerIcon/>
             </Button>
             <Drawer
                 isOpen={isOpen}

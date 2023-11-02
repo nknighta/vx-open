@@ -1,4 +1,4 @@
-import AccountDisp from "./accountDisp";
+import AccountDisp from "../components/accountDisp";
 import Layout from "../layout/main";
 
 export default function test() {

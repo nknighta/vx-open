@@ -2,8 +2,7 @@ import { ReactNode } from "react";
 import ThreeBox from "components/threebox";
 import Layout from "layout/main";
 import IndexElementLayout from "layout/indexpage/indexElementLayout";
-import { GltfLoadElement } from "../components/gltfLoadElement";
-import { Center } from "@chakra-ui/react";
+import {Box, VStack} from "@chakra-ui/react";
 import HMeta from "components/headmeta";
 const Home = () => {
     return (
@@ -14,7 +13,11 @@ const Home = () => {
             <link href="https://fonts.googleapis.com/css2?family=REM:wght@500&display=swap" rel="stylesheet"></link>
             <ThreeBox />
             <IndexElementLayout />
-            <GltfLoadElement />
+            <VStack>
+                <Box bgColor={"#6a17a1"} p={4}>
+                    aaa
+                </Box>
+            </VStack>
         </>
     );
 };
@@ -22,10 +25,7 @@ const Home = () => {
 Home.getLayout = (page: ReactNode) => {
     return (
         <Layout>
-            <Home />
-            <Center p={10} fontSize={20}>
-                make platform, stay tune...
-            </Center>
+            {page}
         </Layout>
     )
 };

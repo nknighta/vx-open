@@ -2,8 +2,8 @@
 /.next
 /.idea
 /.vscode
-/build
 /out
+/build
 
 # files
 *.log
