@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import {getWindowWidth} from "../scripts/getWidth";
-import AccountDisp from "../components/accountDisp";
+import {AccountDisp} from "./accountDisp";
 import {HamburgerIcon} from "@chakra-ui/icons";
 
 // breakpoint is 850px
