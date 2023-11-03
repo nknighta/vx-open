@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 import ThreeBox from "components/threebox";
 import Layout from "layout/main";
 import IndexElementLayout from "layout/indexpage/indexElementLayout";
-import {Box, VStack,Text} from "@chakra-ui/react";
 import HMeta from "components/headmeta";
 
 const Home = () => {
