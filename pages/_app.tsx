@@ -4,18 +4,8 @@ import {NextPage} from "next";
 import type {AppProps} from "next/app";
 import {Analytics} from '@vercel/analytics/react';
 import {ChakraProvider} from "@chakra-ui/react";
-
-import {WagmiConfig, createConfig, mainnet} from 'wagmi'
-import {createPublicClient, http} from 'viem'
-
-const config = createConfig({
-    autoConnect: true,
-    publicClient: createPublicClient({
-        chain: mainnet,
-        transport: http()
-    }),
-})
-
+import {WagmiConfig} from "wagmi";
+import {config} from "../scripts/metamaskConfig";
 
 type NextPageWithLayout = NextPage & {
     getLayout?: (page: ReactElement) => ReactNode;
