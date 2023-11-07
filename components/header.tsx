@@ -10,35 +10,25 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
-    Input,
+    Link ,
     useDisclosure,
     Text
 } from "@chakra-ui/react";
-import Link from "next/link";
 import {getWindowWidth} from "../scripts/getWidth";
 import {AccountDisp} from "./accountDisp";
 import {HamburgerIcon} from "@chakra-ui/icons";
-
+import  {useRouter } from "next/router";
+import NextLink from "next/link";
 // breakpoint is 850px
 // desktop menu is LightMenuDesktop
 // mobile menu is LightMenu
 
-// link array for title text
-const pages = [
-    {id: 1, name: "software", page: "/software"},
-];
 
 export default function VARIUSHeader() {
     const width:number = getWindowWidth();
     const dpadding = width > 990 ? "10vh" : "3vh";
 
-    const ResponseHeaderLayout = () => {
-        if (width > 850) {
-            return <LightMenuDesktop/>;
-        } else {
-            return <LightMenu/>;
-        }
-    };
+
     return (
         <Box bg={"#000012"} color={"#fff"} p={3} pl={dpadding} pr={dpadding}>
             <Flex>
@@ -48,7 +38,7 @@ export default function VARIUSHeader() {
                     </Link>
                 </Flex>
                 <Flex w={"50%"} justifyContent={"flex-end"} alignItems={"center"}>
-                    <ResponseHeaderLayout/>
+                    <LightMenu/>
                     <AccountDisp />
                 </Flex>
             </Flex>
@@ -59,6 +49,7 @@ export default function VARIUSHeader() {
 const LightMenu = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
     const btnRef = React.useRef()
+    const router = useRouter();
     return (
         <Box>
             <Button ref={btnRef} colorScheme='black' onClick={onOpen} fontSize={30} w={45} h={45} ml={4} mr={4}>
@@ -78,22 +69,17 @@ const LightMenu = () => {
                     <DrawerHeader>Menu</DrawerHeader>
 
                     <DrawerBody>
-                        {
-                            pages.map(
-                                linkvalue => {
-                                    return (
-                                        <div key={linkvalue.id}>
-                                            <Link as={`/${linkvalue.name}`}
-                                                  href={`${linkvalue.page}`} style={{
-                                                padding: 10
-                                            }}>
-                                                {linkvalue.name}
-                                            </Link>
-                                        </div>
-                                    );
-                                }
-                            )
-                        }
+                        <NextLink href={"/"} onClick={onClose}>
+                            <Link>
+                                Home
+                            </Link>
+                        </NextLink>
+                        <Box p={2}/>
+                        <NextLink href={"/software"} onClick={onClose}>
+                            <Link>
+                                Software
+                            </Link>
+                        </NextLink>
                     </DrawerBody>
 
                     <DrawerFooter>
@@ -107,28 +93,3 @@ const LightMenu = () => {
     )
 };
 
-
-// for desktop link element
-// map and array
-function LightMenuDesktop() {
-    return (
-        <>
-            {
-                pages.map(
-                    linkvalue => {
-                        return (
-                            <div key={linkvalue.id}>
-                                <Link as={`/${linkvalue.name}`}
-                                      href={`${linkvalue.page}`} style={{
-                                          padding: 10
-                                        }}>
-                                    {linkvalue.name}
-                                </Link>
-                            </div>
-                        );
-                    }
-                )
-            }
-        </>
-    )
-};

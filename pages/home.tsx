@@ -3,8 +3,9 @@ import { InjectedConnector } from 'wagmi/connectors/injected'
 import {Button, Box, Text} from '@chakra-ui/react'
 import Layout from "../layout/main";
 import {ReactNode} from "react";
-import HMeta from "../components/headmeta";
-export default function Account(){
+import HMeta from "../components/headmeta"
+    ;
+export default function Home(){
     const { address, isConnected } = useAccount()
     const { connect } = useConnect({
         connector: new InjectedConnector(),
@@ -21,16 +22,17 @@ export default function Account(){
                 </Box>
                 <Box p={4}/>
                 <Text fontSize={30}>Settings</Text>
+                <Text>Change Wallet</Text>
                 <Button onClick={() => disconnect()}>Disconnect</Button>
             </Box>
         )
     return <Button onClick={() => connect()}>Connect</Button>
 }
 
-Account.getLayout = (page: ReactNode) => {
+Home.getLayout = (page: ReactNode) => {
     return (
         <Layout>
-            <HMeta pageTitle={"Account"} pageDescription={"see your account data and wallet"}/>
+            <HMeta pageTitle={"Home"} pageDescription={"see your account data and wallet"}/>
             {page}
         </Layout>
     )

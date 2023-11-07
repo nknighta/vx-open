@@ -24,11 +24,18 @@ export default function App({Component, pageProps}: AppPropsWithLayout) {
         });
 
     return getLayout(
-        <ChakraProvider>
-            <WagmiConfig config={config}>
-                <Analytics/>
-                <Component {...pageProps} />
-            </WagmiConfig>
-        </ChakraProvider>
+        <Provider>
+            <Component {...pageProps} />
+        </Provider>
     );
+}
+
+const Provider = ({children}: any) => {
+    return (
+        <WagmiConfig config={config}>
+            <ChakraProvider>
+                {children}
+            </ChakraProvider>
+        </WagmiConfig>
+    )
 }

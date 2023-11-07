@@ -12,7 +12,7 @@ const TestBox= ({props}:any) => {
             {...props}
             ref={mesh}>
                 <boxGeometry args={[2,2,2]} />
-                <meshStandardMaterial color={"orange"} />
+                <meshStandardMaterial color={"purple"} />
         </mesh>
     );
 };
@@ -30,7 +30,7 @@ const ThreeBox = () => {
                     height: "60vh",
                 }}>
                     <ambientLight />
-                    <color attach="background" args={["#000000"]} />
+                    <color attach="background" args={["#000011"]} />
                     <pointLight position={[10, 10, 10]} />
                     <TestBox/>
                 </Canvas>
