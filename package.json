@@ -8,8 +8,7 @@
     "build": "next build",
     "start": "next start",
     "typechain": "typechain --target ethers-v5 --outDir './contracts/types' './contracts/abi/*.json'",
-    "compile-contract-types": "yarn compile-contract-types",
-    "analyze": "cross-env ANALYZE=true next build"
+    "compile-contract-types": "yarn compile-contract-types"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
