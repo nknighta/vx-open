@@ -4,6 +4,8 @@ import { Analytics } from '@vercel/analytics/react';
 import HMeta from "components/headmeta";
 import {Box, Text} from "@chakra-ui/react";
 import Link from "next/link";
+import { ColorModeScript } from "@chakra-ui/react";
+
 const MyDocument = () => {
     // test mode
     const [width, setWidth] = React.useState<number>(0);
@@ -32,6 +34,7 @@ const MyDocument = () => {
                     margin: "0 auto",
                     padding: width > 1000 ? "1vh 4vh" : "1vh 2vh",
                 }}>
+            
                     <Main/>
                 </div>
                 <NextScript/>

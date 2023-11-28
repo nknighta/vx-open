@@ -10,7 +10,6 @@ export const Wallet = () => {
     const { connect } = useConnect({
         connector: new InjectedConnector(),
     })
-    const { disconnect } = useDisconnect()
     if (isConnected) {
         router.push("/home")
     }

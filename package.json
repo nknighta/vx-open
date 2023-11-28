@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "typechain": "typechain --target ethers-v5 --outDir './contracts/types' './contracts/abi/*.json'",
-    "compile-contract-types": "yarn compile-contract-types"
+    "compile-contract-types": "yarn compile-contract-types",
+    "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
@@ -21,6 +22,7 @@
     "@metamask/detect-provider": "^2.0.0",
     "@metamask/onboarding": "^1.0.1",
     "@metamask/sdk-react": "^0.11.2",
+    "@next/bundle-analyzer": "^14.0.3",
     "@react-three/drei": "^9.80.0",
     "@react-three/fiber": "^8.13.5",
     "@types/next": "^9.0.0",
@@ -31,6 +33,7 @@
     "@vercel/og": "^0.5.9",
     "@web3-react/core": "^8.2.3",
     "@web3-react/injected-connector": "^6.0.7",
+    "cross-env": "^7.0.3",
     "framer-motion": "^10.12.18",
     "next": "^13.4.9",
     "next-seo": "^6.1.0",

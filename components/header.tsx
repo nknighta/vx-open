@@ -27,8 +27,6 @@ import NextLink from "next/link";
 export default function VARIUSHeader() {
     const width:number = getWindowWidth();
     const dpadding = width > 990 ? "10vh" : "3vh";
-
-
     return (
         <Box bg={"#000012"} color={"#fff"} p={3} pl={dpadding} pr={dpadding}>
             <Flex>
@@ -78,6 +76,13 @@ const LightMenu = () => {
                         <NextLink href={"/software"} onClick={onClose}>
                             <Link>
                                 Software
+                            </Link>
+                        </NextLink>
+                    
+                        <Box p={2}/>
+                        <NextLink href={"/dashboard"} onClick={onClose}>
+                            <Link>
+                                Dashboard
                             </Link>
                         </NextLink>
                     </DrawerBody>

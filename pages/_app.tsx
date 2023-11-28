@@ -1,12 +1,11 @@
 import "./global.css";
-import {ReactElement, ReactNode, useState, useEffect} from "react";
+import {ReactElement, ReactNode} from "react";
 import {NextPage} from "next";
 import type {AppProps} from "next/app";
-import {Analytics} from '@vercel/analytics/react';
 import {ChakraProvider} from "@chakra-ui/react";
 import {WagmiConfig} from "wagmi";
 import {config} from "../scripts/metamaskConfig";
-
+import {extendTheme} from "@chakra-ui/react";
 type NextPageWithLayout = NextPage & {
     getLayout?: (page: ReactElement) => ReactNode;
 };
@@ -32,8 +31,9 @@ export default function App({Component, pageProps}: AppPropsWithLayout) {
 
 const Provider = ({children}: any) => {
     return (
-        <WagmiConfig config={config}>
-            <ChakraProvider>
+        <WagmiConfig config={config}>   
+            <ChakraProvider >
+                <script src="http://localhost:8097"></script>
                 {children}
             </ChakraProvider>
         </WagmiConfig>

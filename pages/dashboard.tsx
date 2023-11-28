@@ -1,17 +1,24 @@
+import { Box ,Text} from "@chakra-ui/react";
 import Layout from "../layout/main";
-import { ReactNode } from "react";
-export default function Dashboard() {
+import {ReactNode} from "react";
+
+export default function Dashboad() {
     return (
-        <>
-            <h1>Dashboard</h1>
-        </>
+        <div>
+            <Box m={"2rem 10vh"}>
+                <Text fontSize={40}>DashBoard</Text>
+            </Box>
+            <Box m={"1rem 10vh"}>
+                Apps
+            </Box>
+        </div>
     )
 }
 
-Dashboard.getLayout = (page: ReactNode) => {
+Dashboad.getLayout = (page: ReactNode) => {
     return (
         <Layout>
             {page}
         </Layout>
     )
-}
+};
