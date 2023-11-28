@@ -7,4 +7,4 @@
 
 # files
 *.log
-yarn.lock
+./yarn.lock
