@@ -1,41 +1,26 @@
 import "./global.css";
-import {ReactElement, ReactNode} from "react";
-import {NextPage} from "next";
-import type {AppProps} from "next/app";
-import {ChakraProvider} from "@chakra-ui/react";
-import {WagmiConfig} from "wagmi";
-import {config} from "../scripts/metamaskConfig";
-import {extendTheme} from "@chakra-ui/react";
-type NextPageWithLayout = NextPage & {
-    getLayout?: (page: ReactElement) => ReactNode;
-};
+import { ReactElement, ReactNode } from "react";
+import { NextPage } from "next";
+import type { AppProps } from "next/app";
+import { ChakraProvider } from "@chakra-ui/react";
 
+// fixed Generic type 'AppProps<P, IP, C>' requires 3 type argument(s).
 type AppPropsWithLayout = AppProps & {
-    Component: NextPageWithLayout;
+    Component: NextPage & {
+        getLayout?: (page: ReactElement) => ReactNode;
+    };
 };
 
-export default function App({Component, pageProps}: AppPropsWithLayout) {
-
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
     const getLayout =
         Component.getLayout ||
         ((page) => {
             return page;
         });
-
     return getLayout(
-        <Provider>
+        <>
+            <script src="http://localhost:8097"></script>
             <Component {...pageProps} />
-        </Provider>
+        </>
     );
-}
-
-const Provider = ({children}: any) => {
-    return (
-        <WagmiConfig config={config}>   
-            <ChakraProvider >
-                <script src="http://localhost:8097"></script>
-                {children}
-            </ChakraProvider>
-        </WagmiConfig>
-    )
 }

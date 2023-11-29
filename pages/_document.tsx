@@ -4,7 +4,6 @@ import { Analytics } from '@vercel/analytics/react';
 import HMeta from "components/headmeta";
 import {Box, Text} from "@chakra-ui/react";
 import Link from "next/link";
-import { ColorModeScript } from "@chakra-ui/react";
 
 const MyDocument = () => {
     // test mode

@@ -1,25 +1,22 @@
-import React, {useEffect, useState} from "react";
-import {Box, ChakraProvider, Text} from "@chakra-ui/react";
-import dynamic from "next/dynamic";
+import React from "react";
+import { WagmiConfig } from "wagmi";
+import { config } from "../scripts/metamaskConfig";
 import VARIUSHeader from "../components/header";
-import Link from "next/link";
+import { ChakraProvider } from "@chakra-ui/react";
 
-interface Props {
-    children: React.ReactNode;
-};
-
-const Layout: React.FC<Props> = ({children}) => {
+const Layout = ({ children }) => {
     return (
         <div style={{
             background: "#000012",
         }}>
             <ChakraProvider>
-                <VARIUSHeader/>
+                <WagmiConfig config={config}>
+                    <VARIUSHeader />
                     {children}
+                </WagmiConfig>
             </ChakraProvider>
         </div>
     );
 };
-
 
 export default Layout;
