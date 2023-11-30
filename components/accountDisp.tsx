@@ -17,9 +17,3 @@ export const  AccountDisp = () => {
         </Box>
     )
 };
-
-
-const accountData: AccountDataType = {
-    name: "nknight amamiya",
-    icon: "/icon.jpeg"
-}

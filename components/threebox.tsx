@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import {useRef} from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import {OrbitControls} from "@react-three/drei";
+import { getWindowWidth } from "scripts/getWidth";
 
 const TestBox= ({props}:any) => {
     const mesh = useRef<THREE.Mesh>(null!);
@@ -18,6 +18,7 @@ const TestBox= ({props}:any) => {
 };
 
 const ThreeBox = () => {
+    const widh = getWindowWidth();
     return (
         <div style={{
             display: "flex",
@@ -31,7 +32,7 @@ const ThreeBox = () => {
                 }}>
                     <ambientLight />
                     <color attach="background" args={["#000011"]} />
-                    <pointLight position={[10, 10, 10]} />
+                    <pointLight position={[-90, 0, -30]} />
                     <TestBox/>
                 </Canvas>
             <div style={{
@@ -42,8 +43,8 @@ const ThreeBox = () => {
                 display: "flex",
                 justifyContent: "flex-end",
                 alignItems: "center",
-                padding: 50,
-                margin: 50,
+                padding: widh > 968 ? "0 10vw" : "0 1vw",
+                margin: 30,
                 color: "#fff"
             }}>
                 Welcome Web3 development.
@@ -51,11 +52,5 @@ const ThreeBox = () => {
         </div>
     )
 };
-
-
-/**
- *
-
- */
 
 export default ThreeBox;

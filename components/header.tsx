@@ -73,13 +73,7 @@ const LightMenu = () => {
                             </Link>
                         </NextLink>
                         <Box p={2}/>
-                        <NextLink href={"/software"} onClick={onClose}>
-                            <Link>
-                                Software
-                            </Link>
-                        </NextLink>
                     
-                        <Box p={2}/>
                         <NextLink href={"/dashboard"} onClick={onClose}>
                             <Link>
                                 Dashboard

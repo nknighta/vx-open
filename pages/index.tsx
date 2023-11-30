@@ -12,6 +12,7 @@ const Home = () => {
     const flexmode = width > 968 ? "flex" : "";
     return (
         <>
+            
             <HMeta pageTitle="Home"
                 pageDescription="VARIUS development team"
                 pageImg={"/header.png"} />
