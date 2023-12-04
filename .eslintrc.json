@@ -1,0 +1,19 @@
+{
+    "extends": "next/core-web-vitals",
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off",
+        "react/function-component-definition": {
+            "namedComponents": "arrow-function",
+            "unnamedComponents": "arrow-function"
+        }
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecma": "latest",
+        "project": "./tsconfig.json",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    }
+}
