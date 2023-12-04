@@ -1,12 +1,11 @@
-import { useAccount, useConnect, useDisconnect } from 'wagmi'
-import { InjectedConnector } from 'wagmi/connectors/injected'
-import Link from "next/link";
+import { useAccount, useConnect } from 'wagmi';
+import { InjectedConnector } from 'wagmi/connectors/injected';
 import { Button } from "@chakra-ui/react";
 import  {useRouter}  from "next/router";
 
 export const Wallet = () => {
     const router = useRouter();
-    const {  isConnected } = useAccount()
+    const {  isConnected } = useAccount();
     const { connect } = useConnect({
         connector: new InjectedConnector(),
     })

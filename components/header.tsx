@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Button,
@@ -10,14 +10,14 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
-    Link ,
+    Link,
     useDisclosure,
     Text
 } from "@chakra-ui/react";
-import {getWindowWidth} from "../scripts/getWidth";
-import {AccountDisp} from "./accountDisp";
-import {HamburgerIcon} from "@chakra-ui/icons";
-import  {useRouter } from "next/router";
+import { getWindowWidth } from "../scripts/getWidth";
+import { AccountDisp } from "./accountDisp";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import { useRouter } from "next/router";
 import NextLink from "next/link";
 // breakpoint is 850px
 // desktop menu is LightMenuDesktop
@@ -25,7 +25,7 @@ import NextLink from "next/link";
 
 
 export default function VARIUSHeader() {
-    const width:number = getWindowWidth();
+    const width: number = getWindowWidth();
     const dpadding = width > 990 ? "10vh" : "3vh";
     return (
         <Box bg={"#000012"} color={"#fff"} p={3} pl={dpadding} pr={dpadding}>
@@ -36,7 +36,7 @@ export default function VARIUSHeader() {
                     </Link>
                 </Flex>
                 <Flex w={"50%"} justifyContent={"flex-end"} alignItems={"center"}>
-                    <LightMenu/>
+                    <LightMenu />
                     <AccountDisp />
                 </Flex>
             </Flex>
@@ -45,13 +45,13 @@ export default function VARIUSHeader() {
 };
 
 const LightMenu = () => {
-    const {isOpen, onOpen, onClose} = useDisclosure();
+    const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef()
     const router = useRouter();
     return (
         <Box>
             <Button ref={btnRef} colorScheme='black' onClick={onOpen} fontSize={30} w={45} h={45} ml={4} mr={4}>
-                <HamburgerIcon/>
+                <HamburgerIcon />
             </Button>
             <Drawer
                 isOpen={isOpen}
@@ -59,26 +59,30 @@ const LightMenu = () => {
                 onClose={onClose}
                 finalFocusRef={btnRef}
             >
-                <DrawerOverlay/>
+                <DrawerOverlay />
                 <DrawerContent
                     backgroundColor={"#000016"}
                     color={"#fff"}>
-                    <DrawerCloseButton/>
+                    <DrawerCloseButton />
                     <DrawerHeader>Menu</DrawerHeader>
 
                     <DrawerBody>
-                        <NextLink href={"/"} onClick={onClose}>
-                            <Link>
+                        <Box m={"7px"}>
+                            <NextLink href={"/"} onClick={onClose}>
                                 Home
-                            </Link>
-                        </NextLink>
-                        <Box p={2}/>
-                    
-                        <NextLink href={"/dashboard"} onClick={onClose}>
-                            <Link>
+                            </NextLink>
+                        </Box>
+                        <Box m={"7px"}>
+                            <NextLink href={"/dashboard"} onClick={onClose}>
                                 Dashboard
-                            </Link>
-                        </NextLink>
+                            </NextLink>
+                        </Box>
+
+                        <Box m={"7px"}>
+                            <NextLink href={"/docs"} onClick={onClose}>
+                                Docs
+                            </NextLink>
+                        </Box>
                     </DrawerBody>
 
                     <DrawerFooter>
@@ -87,8 +91,8 @@ const LightMenu = () => {
                         </Button>
                     </DrawerFooter>
                 </DrawerContent>
-            </Drawer>
-        </Box>
+            </Drawer >
+        </Box >
     )
 };
 

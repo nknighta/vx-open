@@ -3,14 +3,14 @@ import { InjectedConnector } from 'wagmi/connectors/injected'
 import { Button, Box, Text, Center } from '@chakra-ui/react'
 import Layout from "../layout/main";
 import { ReactNode } from "react";
-import HMeta from "../components/headmeta"
-    ;
+import HMeta from "../components/headmeta";
 export default function Home() {
     const { address, isConnected } = useAccount();
     const { disconnect } = useDisconnect();
     const { connect } = useConnect({
         connector: new InjectedConnector(),
     });
+    
     if (isConnected)
         return (
             <Box m={"3rem 10vh"}>
@@ -29,6 +29,7 @@ export default function Home() {
                 <Button onClick={() => disconnect()}>Disconnect</Button>
             </Box>
         )
+        console.log(2);
     return (
         <div style={{
             padding: "3rem 10vh"
