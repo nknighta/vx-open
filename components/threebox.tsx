@@ -5,9 +5,7 @@ import { getWindowWidth } from 'scripts/getWidth';
 
 const TestBox = ({ props }: any) => {
     const mesh = useRef<THREE.Mesh>(null!);
-    useFrame(
-        () => (mesh.current.rotation.x = mesh.current.rotation.y += 0.008),
-    );
+    useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.008));
 
     return (
         <mesh

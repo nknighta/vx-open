@@ -1,19 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-    Box,
-    Button,
-    Flex,
-    Drawer,
-    DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerOverlay,
-    DrawerContent,
-    DrawerCloseButton,
-    Link,
-    useDisclosure,
-    Text,
-} from '@chakra-ui/react';
+import { Box, Button, Flex, Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Link, useDisclosure, Text } from '@chakra-ui/react';
 import { getWindowWidth } from '../scripts/getWidth';
 import { AccountDisp } from './accountDisp';
 import { HamburgerIcon } from '@chakra-ui/icons';

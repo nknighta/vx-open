@@ -22,11 +22,15 @@ const Footer = () => {
                         p={'10px 0'}>
                         Pages
                     </Text>
-                    <Link href={'/docs'}>
-                        <Text p={'3px 0'}>docs</Text>
+                    <Link href={'/docs'} style={{
+                        padding: '3px 0',
+                    }}>
+                        <p>docs</p>
                     </Link>
-                    <Link href={'https://github.com/nknighta/vx-docs/wiki'}>
-                        <Text p={'3px 0'}>GitHub wiki</Text>
+                    <Link href={'https://github.com/nknighta/vx-docs/wiki'}style={{
+                        padding: '3px 0',
+                    }}>
+                        <p>GitHub wiki</p>
                     </Link>
                 </GridItem>
                 <GridItem>

@@ -1,10 +1,11 @@
 import Layout from 'layout/main';
 import HMeta from 'components/headmeta';
 import { Box, Text } from '@chakra-ui/react';
+import { ReactNode } from 'react';
 
 export default function Docs() {
     return (
-        <Layout>
+        <>
             <HMeta
                 pageTitle={'Documentation'}
                 pageDescription={'docs for vx api'}
@@ -26,6 +27,10 @@ export default function Docs() {
                     <Text>version</Text>
                 </Box>
             </Box>
-        </Layout>
+        </>
     );
 }
+
+Docs.getLayout = (page: ReactNode) => {
+    return <Layout>{page}</Layout>;
+};
