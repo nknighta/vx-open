@@ -1,10 +1,18 @@
 import { ethers } from 'ethers';
 
+function getRandomHash(max) {
+    return Math.floor(Math.random() * max);
+}
+
 export const AppHandler = (reqest) => {
     let time = new Date().toLocaleString();
+    const hasbase = () => {
+        let S = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-"
+        let N = 32;
+        return Array.from(Array(N)).map(() => S[Math.floor(Math.random() * S.length)]).join('')};
     const apihash = () => {
         let base = 0, i;
-        let test = time + "G0435IhAWYNTTnvLYOXs5u";
+        let test = time + "xxts";
         for (i = 0; i < test.length; i++) {
             base = test.charCodeAt(i) + ((base << 5) - base);
             base = base & base;
@@ -16,6 +24,6 @@ export const AppHandler = (reqest) => {
     return {
         '12345': reqest,
         time: time,
-        hash: hash,
+        hash: hasbase() + hash + hasbase(),
     };
 };
