@@ -16,24 +16,24 @@ const Footer = () => {
             <Grid
                 templateColumns={isMobile}
                 gap={6}>
-                <GridItem>
+                <GridItem w={"40vh"}>
                     <Text
                         fontSize={20}
                         p={'10px 0'}>
                         Pages
                     </Text>
                     <Link href={'/docs'} style={{
-                        padding: '3px 0',
+                        padding: '3px 0'
                     }}>
-                        <p>docs</p>
+                        <p>Documentation</p>
                     </Link>
                     <Link href={'https://github.com/nknighta/vx-docs/wiki'}style={{
-                        padding: '3px 0',
+                        padding: '3px 0'
                     }}>
                         <p>GitHub wiki</p>
                     </Link>
                 </GridItem>
-                <GridItem>
+                <GridItem w={"40vh"}>
                     <Text
                         fontSize={20}
                         p={'10px 0'}>
@@ -52,7 +52,6 @@ const Footer = () => {
                     </Box>
                 </GridItem>
             </Grid>
-
             <Box fontSize={12}>Made with ❤️ by Nknight 2023</Box>
         </div>
     );
