@@ -1,11 +1,11 @@
 import {ReactNode, Suspense} from 'react';
-import ThreeBox from 'components/threebox';
 import Layout from 'layout/main';
 import HMeta from 'components/headmeta';
 import {getWindowWidth} from '../scripts/getWidth';
 import {Wallet} from '../components/wallet';
 import {Center, Box} from '@chakra-ui/react';
 import dynamic from "next/dynamic"
+import Image from 'next/image';
 
 
 const Home = () => {
@@ -46,9 +46,11 @@ const Home = () => {
                     m={8}>
                     <Box p={2}/>
                     <Center>
-                        <img
+                        <Image
                             src='check.svg'
                             width={100}
+                            height={100}
+                            alt='learn web3'
                         />
                     </Center>
                     <Box p={2}/>
@@ -61,9 +63,11 @@ const Home = () => {
                     m={8}>
                     <Box p={2}/>
                     <Center>
-                        <img
+                        <Image
                             src='app.svg'
                             width={100}
+                            height={100}
+                            alt='create app'
                         />
                     </Center>
                     <Box p={2}/>
