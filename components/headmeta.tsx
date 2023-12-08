@@ -16,7 +16,6 @@ const HMeta: React.FC<MetaProps> = ({ pageTitle, pageDescription, pagePath, page
     const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle;
     const description = pageDescription ? pageDescription : defaultDescription;
     const url = pagePath;
-    const imgUrl = pageImg ? pageImg : defaultImg;
     const imgWidth = pageImgWidth ? pageImgWidth : 1280;
     const imgHeight = pageImgHeight ? pageImgHeight : 640;
     //const imgx = require("/images/favicon.ico");
@@ -71,6 +70,10 @@ const HMeta: React.FC<MetaProps> = ({ pageTitle, pageDescription, pagePath, page
                 name='twitter:site'
                 content='@ama_dev_1'
             />
+            <meta
+                name='twitter:title'
+                content={title}
+                />
             <link
                 rel='icon'
                 href={'https://dev.varius.technology/favicon.ico'}
