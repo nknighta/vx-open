@@ -1,4 +1,4 @@
-import {ReactNode, Suspense} from 'react';
+import {ComponentType, ReactNode, Suspense} from 'react';
 import Layout from 'layout/main';
 import HMeta from 'components/headmeta';
 import {getWindowWidth} from '../scripts/getWidth';
@@ -9,13 +9,13 @@ import Image from 'next/image';
 
 
 const Home = () => {
-    const LazyComponent = dynamic(() => import('../components/threebox'), {
+    const LazyComponent:ComponentType<{}> = dynamic(() => import('../components/threebox'), {
         loading: () => <Loading/>,
         ssr: false,
     });
-    const width = getWindowWidth();
-    const padding = width > 968 ? '70px' : '20px';
-    const flexmode = width > 968 ? 'flex' : '';
+    const width:number = getWindowWidth();
+    const padding: string = width > 968 ? '70px' : '20px';
+    const flexmode: string = width > 968 ? 'flex' : '';
     return (
         <>
             <HMeta
@@ -78,12 +78,12 @@ const Home = () => {
     );
 };
 
-Home.getLayout = (page: ReactNode) => {
+Home.getLayout = (page: ReactNode): JSX.Element => {
     return <Layout>{page}</Layout>;
 };
 
 
-function Loading() {
+function Loading():JSX.Element {
     return <div style={{
         fontSize: '30px',
         display: 'flex',

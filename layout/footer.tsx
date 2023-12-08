@@ -4,8 +4,9 @@ import React from 'react';
 import { getWindowWidth } from '../scripts/getWidth';
 
 const Footer = () => {
-    const width = getWindowWidth();
-    const isMobile = width > 960 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)';
+    const width: number = getWindowWidth();
+    const isMobile : string = width > 960 ? 'repeat(3, 1fr)' : 'repeat(1, 1fr)';
+    const isComlumn : boolean = width > 960 ? true : false;
     return (
         <div
             style={{
@@ -15,15 +16,17 @@ const Footer = () => {
             }}>
             <Grid
                 templateColumns={isMobile}
-                gap={6}>
-                <GridItem w={"40vh"}>
+                templateRows={isComlumn ? '' : 'repeat(3)'}
+                gap={4}
+                >
+                <GridItem>
                     <Text
                         fontSize={20}
                         p={'10px 0'}>
                         Pages
                     </Text>
                     <Link href={'/docs'} style={{
-                        padding: '3px 0'
+                        padding: '4px 0'
                     }}>
                         <p>Documentation</p>
                     </Link>
