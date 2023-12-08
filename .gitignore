@@ -4,7 +4,11 @@
 /.vscode
 /out
 /build
+/.vercel
 
 # files
 *.log
 ./yarn.lock
+.env.development.local
+.env.local
+.env

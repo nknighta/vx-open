@@ -5,7 +5,7 @@ import HMeta from 'components/headmeta';
 import {getWindowWidth} from '../scripts/getWidth';
 import {Wallet} from '../components/wallet';
 import {Center, Box} from '@chakra-ui/react';
-import dynamic from "next/dynamic";
+import dynamic from "next/dynamic"
 
 
 const Home = () => {
