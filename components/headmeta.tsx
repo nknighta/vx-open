@@ -62,7 +62,7 @@ const HMeta: React.FC<MetaProps> = ({ pageTitle, pageDescription, pagePath, page
             <meta property="twitter:description" content="VARIUS development"/>
             <meta
                 name='twitter:image'
-                content={`https://dev.varius.technology/${pageImg}`}
+                content={`https://dev.varius.technology${pageImg}`}
             />
             <meta
                 name='twitter:card'
