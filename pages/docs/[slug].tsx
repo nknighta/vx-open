@@ -30,10 +30,9 @@ const Post = ({ frontMatter, content }) => {
             margin: "0 auto",
             padding: "0 40px"
         }}>
-            <HMeta pageTitle={frontMatter.title + " - documentation"} pageDescription={frontMatter.description} />
+            <HMeta pageTitle={frontMatter.title + " - documentation"} pageDescription={frontMatter.description} pageImg={'/api/og?title=' + frontMatter.title}/>
             <Text fontSize={30} p={6} bgColor={"#3816cc"}>{frontMatter.title}</Text>
             <Text fontSize={20} p={3} bgColor={"#fff"} color={"#3816cc"}>{frontMatter.date} -- {frontMatter.writer}</Text>
-
             <ReactMarkdown children={content} />
         </div>
     );

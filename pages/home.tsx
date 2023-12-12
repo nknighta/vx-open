@@ -53,6 +53,7 @@ Home.getLayout = (page: ReactNode) => {
             <HMeta
                 pageTitle={'Account'}
                 pageDescription={'see your account data and wallet'}
+                pageImg={'/api/og?title=Acount'}
             />
             {page}
         </Layout>
