@@ -1,7 +1,9 @@
+import HMeta from 'components/headmeta';
 import fs from 'fs';
 import matter from 'gray-matter';
 import Layout from 'layout/main';
-import markdownit from 'markdown-it';
+import { Text } from '@chakra-ui/react';
+import ReactMarkdown from 'react-markdown';
 
 export async function getStaticProps({ params }) {
     const file = fs.readFileSync(`posts/${params.slug}.md`, 'utf-8');
@@ -22,12 +24,21 @@ export function getStaticPaths() {
 };
 
 const Post = ({ frontMatter, content }) => {
-    return <div>
-        <h1>{frontMatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: markdownit().render(content) }} />
-    </div>;
+    return (
+        <div style={{
+            maxWidth: "1000px",
+            margin: "0 auto",
+            padding: "0 40px"
+        }}>
+            <HMeta pageTitle={frontMatter.title + " - documentation"} pageDescription={frontMatter.description} />
+            <Text fontSize={30} p={6} bgColor={"#3816cc"}>{frontMatter.title}</Text>
+            <Text fontSize={20} p={3} bgColor={"#fff"} color={"#3816cc"}>{frontMatter.date} -- {frontMatter.writer}</Text>
+
+            <ReactMarkdown children={content} />
+        </div>
+    );
 };
-Post.getLayout = (page) => {    
+Post.getLayout = (page) => {
     return (
         <Layout>
             {page}
