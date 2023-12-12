@@ -25,7 +25,7 @@ const Footer = () => {
                         p={'10px 0'}>
                         Pages
                     </Text>
-                    <Link href={'/docs'} style={{
+                    <Link href={'/docs/content'} style={{
                         padding: '4px 0'
                     }}>
                         <p>Documentation</p>
