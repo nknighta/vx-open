@@ -1,13 +1,20 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { AppHandler } from 'scripts/util';
+
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
     const id = req.query;
-    const cwstatus = AppHandler(id);
-    res.status(200).json({
-        name: 'varius inc.',
-        connect: cwstatus
-    });
+    const hasbase = () => {
+        let S: string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-"
+        let N: number = 32;
+        return Array.from(Array(N)).map(() => S[Math.floor(Math.random() * S.length)]).join('')
+    };
+    const api = () => {
+        let base = hasbase();
+        let S: string = base;
+        let N: number = 64;
+        return Array.from(Array(N)).map(() => S[Math.floor(Math.random() * S.length)]).join('')
+    };
+    res.status(200).json(api());
 };
 
 export default handler;
