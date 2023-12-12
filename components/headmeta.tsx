@@ -58,9 +58,11 @@ const HMeta: React.FC<MetaProps> = ({ pageTitle, pageDescription, pagePath, page
                 property='og:image:height'
                 content={String(imgHeight)}
             />
+    
+            <meta property="twitter:description" content="VARIUS development"/>
             <meta
                 name='twitter:image'
-                content={`https://dev.varius.technology${pageImg}`}
+                content={`https://dev.varius.technology/${pageImg}`}
             />
             <meta
                 name='twitter:card'
