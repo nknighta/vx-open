@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Flex, Button, Icon } from '@chakra-ui/react';
-import { AccountDataType } from '../types/datatypes';
 import { useRouter } from 'next/router';
 import { BiWalletAlt } from 'react-icons/bi';
 export const AccountDisp = () => {
