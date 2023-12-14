@@ -1,25 +1,24 @@
 import React from 'react';
 import { WagmiConfig } from 'wagmi';
-import { config } from '../scripts/metamaskConfig';
+import { config } from 'scripts/metamaskConfig';
 import { ChakraProvider } from '@chakra-ui/react';
 import VARIUSHeader from '../components/header';
 import Footer from '../layout/footer';
 
-const Layout = ({ children }) => {
+const DocsLayout = ({ children }) => {
     return (
         <div
             style={{
                 background: '#000012',
+                margin: '0 auto',
             }}>
-            <ChakraProvider>
+            <ChakraProvider >
                 <VARIUSHeader />
                 <WagmiConfig config={config}>{children}</WagmiConfig>
-                <footer>
-                    <Footer />
-                </footer>
+                <Footer />
             </ChakraProvider>
         </div>
     );
 };
 
-export default Layout;
+export default DocsLayout;

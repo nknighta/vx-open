@@ -25,10 +25,10 @@ export default function Post({posts}) {
 }
 
 export const getStaticProps = () => {
-    const files = fs.readdirSync('posts');
+    const files = fs.readdirSync('src/posts');
     const posts = files.map((fileName) => {
       const slug = fileName.replace(/\.md$/, '');
-      const fileContent = fs.readFileSync(`posts/${fileName}`, 'utf-8');
+      const fileContent = fs.readFileSync(`src/posts/${fileName}`, 'utf-8');
       const { data } = matter(fileContent);
       return {
         frontMatter: data,
