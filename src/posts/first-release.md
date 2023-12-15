@@ -2,7 +2,7 @@
 title: 'First Release'
 date: '2023-12-12'
 writer: "nknight amamiya"
-description: 'first release of my blog'
+description: '(^ = ^ )'
 ---
 
 # this is test markdown file.

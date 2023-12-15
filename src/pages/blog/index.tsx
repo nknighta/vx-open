@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import Link from "next/link";
 import HMeta from 'components/headmeta';
 import { Text, Box, Badge, Grid, GridItem, Image } from '@chakra-ui/react';
-  import { getWindowWidth } from 'scripts/getWidth';
+import { getWindowWidth } from 'scripts/getWidth';
 
 export default function Post({ posts }) {
   const width = getWindowWidth();
@@ -21,7 +21,7 @@ export default function Post({ posts }) {
           <GridItem>
             <Link href={`/blog/${post.slug}`} key={post.slug}>
               <Box
-                maxW={400}
+                maxW={380}
                 bg={"#555555"}
                 borderRadius={"lg"}
                 overflow={"hidden"}
@@ -33,7 +33,7 @@ export default function Post({ posts }) {
                 <Box p={5}>
                   <Box>
                     <Badge borderRadius='full' px='2' colorScheme='teal'>
-                      New
+                      Blog
                     </Badge>
                     <Text m={2}>{post.frontMatter.title}</Text>
                     <Text m={2}>{post.frontMatter.description}</Text>
