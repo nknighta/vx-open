@@ -87,9 +87,9 @@ const LightMenu = () => {
 
                         <Box m={'7px'}>
                             <NextLink
-                                href={'/docs'}
+                                href={'/blog'}
                                 onClick={onClose}>
-                                Docs
+                                Blog
                             </NextLink>
                         </Box>
                     </DrawerBody>

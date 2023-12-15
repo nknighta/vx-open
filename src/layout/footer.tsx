@@ -25,10 +25,10 @@ const Footer = () => {
                         p={'10px 0'}>
                         Pages
                     </Text>
-                    <Link href={'/docs/content'} style={{
+                    <Link href={'/blog'} style={{
                         padding: '4px 0'
                     }}>
-                        <p>Documentation</p>
+                        <p>Blog</p>
                     </Link>
                     <Link href={'https://github.com/nknighta/vx-docs/wiki'}style={{
                         padding: '3px 0'

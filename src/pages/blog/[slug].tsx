@@ -3,9 +3,10 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import DocsLayout from 'layout/docs';
 import { Text, Box } from '@chakra-ui/react';
-import {bascicdocspath, bascicpath} from 'scripts/basic';
+import { bascicdocspath} from 'scripts/basic';
 import Markdown from 'react-markdown'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
+import Link from "next/link";
 
 export async function getStaticProps({ params }) {
     const file = fs.readFileSync(`${bascicdocspath}/${params.slug}.md`, 'utf-8');
@@ -34,7 +35,8 @@ const Post = ({ frontMatter, content }) => {
             margin: "0 auto",
             padding: "0 40px"
         }}>
-            <HMeta pageTitle={frontMatter.title + " - documentation"} pageDescription={frontMatter.description} pageImg={'/api/og?title=' + frontMatter.title} />
+            <HMeta pageTitle={frontMatter.title + " - documentation"} 
+            pageDescription={frontMatter.description} pageImg={`/api/og?title=${frontMatter.description}&description=${frontMatter.description}`} />
             <Text fontSize={30} p={2} color={"#af60ff"}>{frontMatter.title}</Text>
             <Text fontSize={20} p={1} color={"#fff"}>{frontMatter.date} -- written by {frontMatter.writer}</Text>
             <Box fontSize={"18px"} p={"3.5vh 0"}>
@@ -42,9 +44,12 @@ const Post = ({ frontMatter, content }) => {
                     {content}
                 </Markdown>
             </Box>
-            <Box>
-                docs update logs
-            </Box>
+            <Link href={'/blog'} style={{
+                padding: '4px 0',
+                textDecoration: 'underline',
+            }}>
+                ↩ back to prev
+            </Link>
         </div>
     );
 };
