@@ -11,7 +11,6 @@ import Link from "next/link";
 export async function getStaticProps({ params }) {
     const file = fs.readFileSync(`${bascicdocspath}/${params.slug}.md`, 'utf-8');
     const { data, content } = matter(file);
-    console.log(content);
     return { props: { frontMatter: data, content } };
 }
 export function getStaticPaths() {

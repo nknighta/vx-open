@@ -16,3 +16,8 @@ export const AppHandler = (reqest) => {
         time: time,
     };
 };
+
+export const ApiTest = (reqest) => {
+    reqest = "soda";
+    return reqest;
+};
