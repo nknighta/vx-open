@@ -1,4 +1,4 @@
-# VX 
+# VX
 
 > awesome web3 development platform
 
@@ -22,11 +22,10 @@ Hosting by [Vercel](https://vercel.com/)
 
 ## RoadMap
 
-- [x] July 25, 2023 Create new VX repository
-- [x] July 26, 2023 Create new VX website
-- [x] July 28, 2023 setting of application DNS configuration
-- [ ] August 2023 merge old V repository
-- [ ] August 2023 merge old V website
-- [ ] August 2023 launch VX user service
-- [ ] And more...!
-
+-   [x] July 25, 2023 Create new VX repository
+-   [x] July 26, 2023 Create new VX website
+-   [x] July 28, 2023 setting of application DNS configuration
+-   [ ] August 2023 merge old V repository
+-   [ ] August 2023 merge old V website
+-   [ ] August 2023 launch VX user service
+-   [ ] And more...!
