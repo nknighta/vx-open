@@ -21,7 +21,9 @@ const HMeta: React.FC<MetaProps> = ({ pageTitle, pageDescription, pagePath, page
     return (
         <Head>
             <title>{title}</title>
-            <meta/>
+            <meta 
+                name="google-site-verification" 
+                content="Qjxxvj1jYae_WgPQU3DLHEhDgH_DlomNupTymcKRHUc" />
             <meta
                 name='description'
                 content={description}
@@ -58,8 +60,8 @@ const HMeta: React.FC<MetaProps> = ({ pageTitle, pageDescription, pagePath, page
                 property='og:image:height'
                 content={String(imgHeight)}
             />
-    
-            <meta property="twitter:description" content="VARIUS development"/>
+
+            <meta property="twitter:description" content="VARIUS development" />
             <meta
                 name='twitter:image'
                 content={`https://dev.varius.technology${pageImg}`}
@@ -75,7 +77,7 @@ const HMeta: React.FC<MetaProps> = ({ pageTitle, pageDescription, pagePath, page
             <meta
                 name='twitter:title'
                 content={title}
-                />
+            />
             <link
                 rel='icon'
                 href={'https://dev.varius.technology/favicon.ico'}
