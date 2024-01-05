@@ -1,6 +1,5 @@
 import {NextApiRequest, NextApiResponse} from "next";
-import { utilhandler } from "../../scripts/util";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-    utilhandler(req, res);
+    res.status(200).json({ version: "0.1.0", author: "nknight amamiya" });
 }

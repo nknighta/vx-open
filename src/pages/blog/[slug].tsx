@@ -1,7 +1,7 @@
 import HMeta from 'components/headmeta';
 import fs from 'fs';
 import matter from 'gray-matter';
-import DocsLayout from 'layout/docs';
+import Layout from '../../layout/main';
 import { Text, Box } from '@chakra-ui/react';
 import { bascicdocspath} from 'scripts/basic';
 import Markdown from 'react-markdown'
@@ -27,7 +27,6 @@ export function getStaticPaths() {
 };
 
 const Post = ({ frontMatter, content }) => {
-    console.log(content);
     return (
         <div style={{
             maxWidth: "1000px",
@@ -36,7 +35,7 @@ const Post = ({ frontMatter, content }) => {
         }}>
             <HMeta pageTitle={frontMatter.title + " - documentation"} 
             pageDescription={frontMatter.description} pageImg={`/api/og?title=${frontMatter.description}&description=${frontMatter.description}`} />
-            <Text fontSize={30} p={2} color={"#af60ff"}>{frontMatter.title}</Text>
+            <Text fontSize={30} p={"3vh 0"} color={"#af60ff"}>{frontMatter.title}</Text>
             <Text fontSize={20} p={1} color={"#fff"}>{frontMatter.date} -- written by {frontMatter.writer}</Text>
             <Box fontSize={"18px"} p={"3.5vh 0"}>
                 <Markdown components={ChakraUIRenderer()}>
@@ -56,9 +55,9 @@ const Post = ({ frontMatter, content }) => {
 
 Post.getLayout = (page) => {
     return (
-        <DocsLayout>
+        <Layout>
             {page}
-        </DocsLayout>
+        </Layout>
     );
 }
 
