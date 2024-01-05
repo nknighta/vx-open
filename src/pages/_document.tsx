@@ -15,6 +15,7 @@ const MyDocument = () => {
     }, [width]);
     return (
         <Html lang='en'>
+            <SpeedInsights />
             <Analytics />
             <Head />
             <HMeta />
@@ -27,7 +28,6 @@ const MyDocument = () => {
                 }}>
                 <Main />
                 <NextScript />
-                <SpeedInsights />
             </body>
         </Html>
     );
