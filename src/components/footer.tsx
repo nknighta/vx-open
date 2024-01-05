@@ -27,15 +27,31 @@ const Footer = () => {
                         Pages
                     </Text>
                     <Box>
-                        <Link href={'/blog'}>
-                            <Text p={'3px 0'}>Blog</Text>
-                        </Link>
-                        <Link href={'https://github.com/search?q=owner%3Anknighta+vx&type=repositories'}>
-                            <Text p={'3px 0'}>Repositoryes</Text>
-                        </Link>
-                        <Link href={'https://github.com/nknighta/vx-docs/wiki'}>
-                            <Text p={'3px 0'}>Wiki(GitHub)</Text>
-                        </Link>
+                        <Text p={'3px 0'} width={"50%"}>
+                            <Link href={'/blog'}>
+                                Blog
+                            </Link>
+                        </Text>
+                        <Text p={'3px 0'} width={"50%"}>
+                            <Link href={'/docs'}>
+                                Docs
+                            </Link>
+                        </Text>
+                        <Text p={'3px 0'} width={"50%"}>
+                            <Link href={'/about'}>
+                                About
+                            </Link>
+                        </Text>
+                        <Text p={'3px 0'} width={"50%"}>
+                            <Link href={'https://github.com/search?q=owner%3Anknighta+vx&type=repositories'}>
+                                Repositoryes - GitHub
+                            </Link>
+                        </Text>
+                        <Text p={'3px 0'} width={"50%"}>
+                            <Link href={'https://github.com/nknighta/vx-docs/wiki'}>
+                                Wiki - GitHub
+                            </Link>
+                        </Text>
                     </Box>
                 </GridItem>
                 <GridItem w={"40vh"}>

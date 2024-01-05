@@ -4,11 +4,23 @@ import { config } from 'scripts/metamaskConfig';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import VARIUSHeader from '../components/header';
 import Footer from '../components/footer';
-import theme from './themes';
 
-const Layout = ({ children }) => {
+const theme = extendTheme({
+    colors: {
+        brand: {
+            100: "#f7fafc",
+            900: "#1a202c",
+        },
+    }
+})
+
+
+const DashLayout = ({ children }) => {
     return (
-        <div>
+        <div
+            style={{
+                background: '#000012',
+            }}>
             <ChakraProvider theme={theme}>
                 <VARIUSHeader />
                 <WagmiConfig config={config}>{children}</WagmiConfig>
@@ -20,4 +32,4 @@ const Layout = ({ children }) => {
     );
 };
 
-export default Layout;
+export default DashLayout;

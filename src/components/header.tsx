@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Box, Button, Flex, Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Link, useDisclosure, Text } from '@chakra-ui/react';
 import { getWindowWidth } from '../scripts/getWidth';
-import { AccountDisp } from './accountDisp';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router';
 import NextLink from 'next/link';
+import { Icon } from '@chakra-ui/react';
 // breakpoint is 850px
 // desktop menu is LightMenuDesktop
 // mobile menu is LightMenu
+import { BiWalletAlt } from 'react-icons/bi';
+
 
 export default function VARIUSHeader() {
     const width: number = getWindowWidth();
@@ -39,6 +41,35 @@ export default function VARIUSHeader() {
         </Box>
     );
 }
+
+export const AccountDisp = () => {
+    const router = useRouter();
+    return (
+        <Box
+            bgColor={'#6a17a1'}
+            width={45}
+            borderRadius={50}>
+            <Flex
+                p={1}
+                alignItems={'center'}
+                justifyContent={'center'}>
+                <Button
+                    borderRadius={50}
+                    onClick={() => {
+                        router.push('/dashboard');
+                    }}>
+                    <Icon
+                        as={BiWalletAlt}
+                        color={'#6a17a1'}
+                        w={6}
+                        h={6}
+                    />
+                </Button>
+            </Flex>
+        </Box>
+    );
+};
+
 
 const LightMenu = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
