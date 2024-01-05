@@ -12,16 +12,16 @@ interface MetaProps {
 const HMeta: React.FC<MetaProps> = ({ pageTitle, pageDescription, pagePath, pageImg, pageImgWidth, pageImgHeight }) => {
     const defaultTitle = 'VARIUS';
     const defaultDescription = 'Web3 development';
-    const defaultImg = '/favicon.ico';
     const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle;
     const description = pageDescription ? pageDescription : defaultDescription;
-    const url = pagePath;
+    const url = `https://dev.varius.technology${pagePath}`;
     const imgWidth = pageImgWidth ? pageImgWidth : 1280;
     const imgHeight = pageImgHeight ? pageImgHeight : 640;
     //const imgx = require("/images/favicon.ico");
     return (
         <Head>
             <title>{title}</title>
+            <meta/>
             <meta
                 name='description'
                 content={description}

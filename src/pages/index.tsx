@@ -25,6 +25,7 @@ const Home = () => {
             <HMeta
                 pageTitle='Home'
                 pageDescription='VARIUS development team'
+                pagePath='/'
                 pageImg={'/api/og?title=VX-WEB3'}
             />
             <link
