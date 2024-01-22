@@ -3,13 +3,12 @@ import { Box, Button, Flex, Drawer, DrawerBody, DrawerFooter, DrawerHeader, Draw
 import { getWindowWidth } from '../scripts/getWidth';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router';
-import NextLink from 'next/link';
 import { Icon } from '@chakra-ui/react';
 // breakpoint is 850px
 // desktop menu is LightMenuDesktop
 // mobile menu is LightMenu
 import { BiWalletAlt } from 'react-icons/bi';
-
+import LightMenu from './hmenu';
 
 export default function VARIUSHeader() {
     const width: number = getWindowWidth();
@@ -71,71 +70,3 @@ export const AccountDisp = () => {
 };
 
 
-const LightMenu = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const btnRef = React.useRef();
-    const router = useRouter();
-    return (
-        <Box>
-            <Button
-                ref={btnRef}
-                colorScheme='black'
-                onClick={onOpen}
-                fontSize={30}
-                w={45}
-                h={45}
-                ml={4}
-                mr={4}>
-                <HamburgerIcon />
-            </Button>
-            <Drawer
-                isOpen={isOpen}
-                placement='right'
-                onClose={onClose}
-                finalFocusRef={btnRef}>
-                <DrawerOverlay />
-                <DrawerContent
-                    backgroundColor={'#000016'}
-                    color={'#fff'}>
-                    <DrawerCloseButton />
-                    <DrawerHeader>Menu</DrawerHeader>
-
-                    <DrawerBody>
-                        <Box m={'7px'}>
-                            <NextLink
-                                href={'/'}
-                                onClick={onClose}>
-                                Home
-                            </NextLink>
-                        </Box>
-                        <Box m={'7px'}>
-                            <NextLink
-                                href={'/dashboard'}
-                                onClick={onClose}>
-                                Dashboard
-                            </NextLink>
-                        </Box>
-
-                        <Box m={'7px'}>
-                            <NextLink
-                                href={'/blog'}
-                                onClick={onClose}>
-                                Blog
-                            </NextLink>
-                        </Box>
-                    </DrawerBody>
-
-                    <DrawerFooter>
-                        <Button
-                            variant='outline'
-                            mr={3}
-                            onClick={onClose}
-                            colorScheme='white'>
-                            Close
-                        </Button>
-                    </DrawerFooter>
-                </DrawerContent>
-            </Drawer>
-        </Box>
-    );
-};

@@ -1,10 +1,17 @@
-import { createConfig, mainnet } from 'wagmi';
-import { createPublicClient, http } from 'viem';
+import { http, createConfig } from 'wagmi'
+import { mainnet, sepolia } from 'wagmi/chains'
+
+declare module 'wagmi' { 
+    interface Register { 
+      config: typeof config 
+    } 
+  } 
 
 export const config = createConfig({
-    autoConnect: true,
-    publicClient: createPublicClient({
-        chain: mainnet,
-        transport: http(),
-    }),
-});
+  chains: [mainnet, sepolia],
+  ssr: true,
+  transports: {
+    [mainnet.id]: http(),
+    [sepolia.id]: http(),
+  },
+})

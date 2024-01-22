@@ -5,7 +5,7 @@
     "license": "MIT",
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
+        "build": "prisma generate && next build",
         "start": "next start",
         "typechain": "typechain --target ethers-v5 --outDir './contracts/types' './contracts/abi/*.json'",
         "compile-contract-types": "yarn compile-contract-types",
@@ -23,8 +23,11 @@
         "@metamask/sdk": "^0.14.1",
         "@metamask/sdk-react": "^0.11.2",
         "@next/bundle-analyzer": "^14.0.3",
+        "@prisma/client": "^5.7.1",
         "@react-three/drei": "^9.80.0",
         "@react-three/fiber": "^8.13.5",
+        "@tanstack/react-query": "^5.17.19",
+        "@tanstack/react-query-next-experimental": "^5.17.19",
         "@truffle/hdwallet-provider": "^2.1.15",
         "@typescript-eslint/parser": "^6.13.1",
         "@vercel/analytics": "^1.0.2",
@@ -51,15 +54,15 @@
         "styled-components": "^6.0.5",
         "swr": "^2.2.4",
         "three": "^0.154.0",
-        "typescript": "^5.1.6",
-        "viem": "^1.18.4",
-        "wagmi": "^1.4.5",
+        "typescript": "^5.3.3",
+        "viem": "2.x",
+        "wagmi": "^2.2.1",
         "web3": "^4.2.2"
     },
     "devDependencies": {
         "@typechain/ethers-v5": "^11.1.2",
         "@types/next": "^9.0.0",
-        "@types/node": "^20.10.2",
+        "@types/node": "^20.10.7",
         "@types/react": "^18.2.41",
         "@types/three": "^0.159.0",
         "eslint": "8.55.0",
@@ -71,7 +74,8 @@
         "next-images": "^1.8.5",
         "next-sitemap": "^4.2.3",
         "prettier": "^3.1.0",
-        "prisma": "^5.7.0",
-        "react-icons": "^4.11.0"
+        "prisma": "^5.7.1",
+        "react-icons": "^4.11.0",
+        "ts-node": "^10.9.2"
     }
 }
