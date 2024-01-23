@@ -22,10 +22,6 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
             padding: 0,
             fontFamily: '"Noto Sans JP", sans-serif'
         }}>
-            <link
-                href='https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap'
-                rel='stylesheet'></link>
-            <script src='http://localhost:8097'></script>
             <Component {...pageProps} />
         </div>,
     );
