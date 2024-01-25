@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react';
+import { ReactElement, ReactNode, useEffect } from 'react';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import './global.css';
@@ -19,9 +19,21 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         ((page) => {
             return page;
         });
+
     return getLayout(
-            <Providers>
-                <Component {...pageProps} />
-            </Providers>
+        <Providers>
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-18XMLEQQ2G"></script>
+            <script>
+                {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '18XMLEQQ2', {
+            page_path: window.location.pathname,
+          });
+        `}
+            </script>
+            <Component {...pageProps} />
+        </Providers>
     );
 }
