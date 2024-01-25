@@ -6,17 +6,6 @@ import * as React from 'react'
 import { Connector, useConnect, useDisconnect, useAccount } from 'wagmi';
 import Image from 'next/image';
 
-const testappcontent = [
-    {
-        "name": "test1",
-        "id": 20
-    },
-    {
-        "name": "test1",
-        "id": 20
-    },
-]
-
 function WalletOption({
     connector,
     onClick,
@@ -80,31 +69,7 @@ export default function Dash() {
                         <div>{address}</div>
                         <p>Wallet Provider</p>
                         <div>{account.connector.name}</div>
-                        <button onClick={() => disconnect()}>Disconnect</button>
-                        <Box>
-                            this is sample
-                        </Box>
-                        <Box pt={4} fontSize={40}>
-                            HI! test
-                        </Box>
-                        <Button>
-                            Create
-                        </Button>
-                        <Grid templateColumns='repeat(5, 1fr)' gap={6}>
-                            {testappcontent.map(item => (
-                                <GridItem
-                                    p={1}
-                                    bgColor={"#4826ff"}
-                                    h={120}
-                                    w={120}
-                                    display={"flex"}
-                                    justifyContent={"center"}
-                                    alignItems={"center"}
-                                >
-                                    {item.name}
-                                </GridItem>
-                            ))}
-                        </Grid>
+                        <Button onClick={() => disconnect()}>Disconnect</Button>               
                     </div>
                 ) : (
                     <div>
