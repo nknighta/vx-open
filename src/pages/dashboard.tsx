@@ -69,7 +69,8 @@ export default function Dash() {
                         <div>{address}</div>
                         <p>Wallet Provider</p>
                         <div>{account.connector.name}</div>
-                        <Button onClick={() => disconnect()}>Disconnect</Button>               
+                        <Button onClick={() => disconnect()}>Disconnect</Button>
+                        
                     </div>
                 ) : (
                     <div>
