@@ -3,7 +3,9 @@ import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import './global.css';
 import Providers from 'components/provider';
-
+import * as gtag from 'scripts/gtag';
+import { useRouter } from 'next/router'
+import Script from 'next/script';
 // fixed Generic type 'AppProps<P, IP, C>' requires 3 type argument(s).
 type AppPropsWithLayout = AppProps & {
     Component: NextPage & {
@@ -14,25 +16,31 @@ type AppPropsWithLayout = AppProps & {
 // <Providers> is for react-query and wagmi sh
 // import from 'components/provider'
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
+    const router = useRouter();
+
     const getLayout =
         Component.getLayout ||
         ((page) => {
             return page;
         });
 
+    useEffect(() => {
+        const handleRouteChange = (url) => {
+            gtag.pageview(url)
+        }
+        router.events.on('routeChangeComplete', handleRouteChange)
+        return () => {
+            router.events.off('routeChangeComplete', handleRouteChange)
+        }
+    }, [])
     return getLayout(
         <Providers>
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-18XMLEQQ2G"></script>
-            <script>
-                {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '18XMLEQQ2', {
-            page_path: window.location.pathname,
-          });
-        `}
-            </script>
+            <Script async src="https://www.googletagmanager.com/gtag/js?id=G-18XMLEQQ2G"></Script>
+            <Script id="gtag" defer dangerouslySetInnerHTML={{
+                __html: `window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());`
+            }}></Script>
             <Component {...pageProps} />
         </Providers>
     );
