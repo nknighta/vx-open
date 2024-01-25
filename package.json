@@ -9,7 +9,8 @@
         "start": "next start",
         "typechain": "typechain --target ethers-v5 --outDir './contracts/types' './contracts/abi/*.json'",
         "compile-contract-types": "yarn compile-contract-types",
-        "lint": "next lint"
+        "lint": "next lint",
+	"build:analyze": "npx cross-env ANAYZE=true next build"
     },
     "dependencies": {
         "@chakra-ui/icons": "^2.1.1",
@@ -22,7 +23,7 @@
         "@metamask/onboarding": "^1.0.1",
         "@metamask/sdk": "^0.14.1",
         "@metamask/sdk-react": "^0.11.2",
-        "@next/bundle-analyzer": "^14.0.3",
+        "@next/bundle-analyzer": "^14.1.0",
         "@prisma/client": "^5.7.1",
         "@react-three/drei": "^9.80.0",
         "@react-three/fiber": "^8.13.5",

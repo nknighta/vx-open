@@ -16,7 +16,6 @@ const MyDocument = () => {
         <Html lang='en'>
             <Analytics />
             <Head />
-            <HMeta />
             <body
                 style={{
                     height: 'auto',
