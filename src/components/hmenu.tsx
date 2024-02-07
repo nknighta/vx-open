@@ -58,7 +58,11 @@ const LightMenu = () => {
                             </NextLink>
                         </Box>
                         <Box m={'7px'}>
-                            fix now
+                            <NextLink
+                                href={'/about'}
+                                onClick={onClose}>
+                                About
+                            </NextLink>
                         </Box>
                     </DrawerBody>
 

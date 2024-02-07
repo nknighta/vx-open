@@ -10,13 +10,16 @@ export default function About() {
             <HMeta pageTitle="About VARIUS" />
             <Center
                 zIndex={2}
-                fontSize={50}
-                padding={10}
-                height={"60vh"}
+                fontSize={[35 , 45 , 60, 70]}
+                padding={"10vh 0"}
+                height={"80vh"}
                 maxW={"90vh"}
-                color={"#000021"}>
-                Our goal is to free ourselves from corporate monopolies and provide a flexible and free development environment.
+                color={"#000021"}
+		p={["0px 20px ", "0px 20px", 0, 0]}>
+                Our goal is <br />
+                to free ourselves from corporate monopolies and provide a flexible and free development environment. 
             </Center>
+
             <Box bgColor={"#00000098"} padding={"2vh 20px"}>
                 <Text fontSize={40}>
                     Menbers
