@@ -34,5 +34,11 @@ export default function IndexPage() {
 	</div>
     {loading ? <div>loading...</div> : <div>result: </div>}
 		{JSON.stringify(FetchInfura())}
+    <p>other pages</p>
+    <a href="/dashboard">dashboard</a> / 
+    <a href="/about">about</a> / 
+    <a href="/docs">docs</a> / 
+    <a href="/blog">blog</a> / 
+    <a href="/api/v1">api</a> /
 	</div>)
 }

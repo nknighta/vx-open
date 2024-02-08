@@ -13,6 +13,7 @@ import LightMenu from './hmenu';
 export default function VARIUSHeader() {
     const width: number = getWindowWidth();
     const dpadding = width > 990 ? '10vh' : '3vh';
+    const router = useRouter();
     return (
         <Box
             bg={'#000012'}
@@ -34,39 +35,32 @@ export default function VARIUSHeader() {
                     justifyContent={'flex-end'}
                     alignItems={'center'}>
                     <LightMenu />
-                    <AccountDisp />
+		<Box
+	            bgColor={'#6a17a1'}
+        	    width={45}
+	            borderRadius={50}>
+        	    <Flex
+                	p={1}
+	                alignItems={'center'}
+        	        justifyContent={'center'}>
+                	<Button
+	                    borderRadius={50}
+        	            onClick={() => {
+                	        router.push('/dashboard');
+	                    }}>
+        		            <Icon
+	        	                as={BiWalletAlt}
+        	        	        color={'#6a17a1'}
+		                        w={6}
+                		        h={6}
+			             />
+                	</Button>
+	            </Flex>
+	        </Box>
+
                 </Flex>
             </Flex>
         </Box>
     );
 }
-
-export const AccountDisp = () => {
-    const router = useRouter();
-    return (
-        <Box
-            bgColor={'#6a17a1'}
-            width={45}
-            borderRadius={50}>
-            <Flex
-                p={1}
-                alignItems={'center'}
-                justifyContent={'center'}>
-                <Button
-                    borderRadius={50}
-                    onClick={() => {
-                        router.push('/dashboard');
-                    }}>
-                    <Icon
-                        as={BiWalletAlt}
-                        color={'#6a17a1'}
-                        w={6}
-                        h={6}
-                    />
-                </Button>
-            </Flex>
-        </Box>
-    );
-};
-
 

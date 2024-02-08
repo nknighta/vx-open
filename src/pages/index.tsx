@@ -2,8 +2,7 @@ import { ComponentType, ReactNode, Suspense } from 'react';
 import Layout from 'layout/main';
 import HMeta from 'components/headmeta';
 import { getWindowWidth } from '../scripts/getWidth';
-import Wallet from '../components/wallet';
-import { Center, Box, Text } from '@chakra-ui/react';
+import { Center, Box, Text, Grid } from '@chakra-ui/react';
 import dynamic from "next/dynamic"
 import Image from 'next/image';
 
@@ -32,30 +31,39 @@ const Home = () => {
                 fontSize={50}
                 padding={padding}
                 wordBreak={'break-word'}>
-                Start building your web3 dev.
+                Start building your web3 development
             </Center>
             <Center fontSize={35}>feature</Center>
-            <Center>
-                <Box display={flexmode}>
+            <Center >
+                <Grid>
                     <Box
-                        bgColor={'brand.300'}
+                        m={8}
                         w={400}
                         h={200}
-                        m={8}>
-                        <Box p={2} />
-                        <Center>
-                            <Image
-                                src='check.svg'
-                                width={100}
-                                height={100}
-                                alt='learn web3'
-                            />
-                        </Center>
-                        <Box p={2} />
-                        <Center>Learn Web3development</Center>
+                    >
+                        <Box
+                            w={400}
+                            content=''
+                            h={200}
+                            borderBottom={"1px solid #7654ff"}
+                            borderRight={"1px solid transparent"}
+                            position={"absolute"}
+                        >
+                            <Box p={2} />
+                            <Center>
+                                <Image
+                                    src='check.svg'
+                                    width={100}
+                                    height={100}
+                                    alt='learn web3'
+                                />
+                            </Center>
+                            <Box p={2} />
+                            <Center>Learn Web3 development</Center>
+                        </Box>
                     </Box>
                     <Box
-                        bgColor={'brand.300'}
+                        border={"1px solid #9684ff"}
                         w={400}
                         h={200}
                         m={8}>
@@ -71,7 +79,42 @@ const Home = () => {
                         <Box p={2} />
                         <Center>Create App using VX</Center>
                     </Box>
-                </Box>
+                    <Box
+                        border={"1px solid #9684ff"}
+                        w={400}
+                        h={200}
+                        m={8}>
+                        <Box p={2} />
+                        <Center>
+                            <Image
+                                src='app.svg'
+                                width={100}
+                                height={100}
+                                alt='create app'
+                            />
+                        </Center>
+                        <Box p={2} />
+                        <Center>Analyze Data</Center>
+                    </Box>
+
+                    <Box
+                        border={"1px solid #9684ff"}
+                        w={400}
+                        h={200}
+                        m={8}>
+                        <Box p={2} />
+                        <Center>
+                            <Image
+                                src='app.svg'
+                                width={100}
+                                height={100}
+                                alt='create app'
+                            />
+                        </Center>
+                        <Box p={2} />
+                        <Center>Eazy Wallet Connection</Center>
+                    </Box>
+                </Grid>
             </Center>
         </>
     );
