@@ -1,18 +1,21 @@
 import { useAccount, useConnect } from 'wagmi';
-import { InjectedConnector } from 'wagmi/connectors/injected';
 import { Button } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 
 const Wallet = () => {
-    const router = useRouter();
-    const { isConnected } = useAccount();
-    const { connect } = useConnect({
-        connector: new InjectedConnector(),
-    });
-    if (isConnected) {
-        router.push('/dashboard');
-    }
-    return <Button onClick={() => connect()}>Connect</Button>;
+    return (
+        <div>
+            <Button
+                colorScheme='black'
+                fontSize={20}
+                w={45}
+                h={45}
+                ml={4}
+                mr={4}>
+                Connect Wallet
+            </Button>
+        </div>
+    )
 };
 
 export default Wallet;

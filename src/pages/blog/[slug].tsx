@@ -8,6 +8,7 @@ import Markdown from 'react-markdown'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import Link from "next/link";
 
+// <Link href={`/blog/${post.slug}`} 
 export async function getStaticProps({ params }) {
     const file = fs.readFileSync(`${bascicdocspath}/${params.slug}.md`, 'utf-8');
     const { data, content } = matter(file);
@@ -34,7 +35,8 @@ const Post = ({ frontMatter, content }) => {
             padding: "0 40px"
         }}>
             <HMeta pageTitle={frontMatter.title + " - documentation"} 
-            pageDescription={frontMatter.description} pageImg={`/api/og?title=${frontMatter.description}&description=${frontMatter.description}`} />
+            pageDescription={frontMatter.description} pageImg={`/api/og?title=${frontMatter.description}&description=${frontMatter.description}`} 
+            pagePath={`/blog/${frontMatter.title}`}/>
             <Text fontSize={30} p={"3vh 0"} color={"#af60ff"}>{frontMatter.title}</Text>
             <Text fontSize={20} p={1} color={"#fff"}>{frontMatter.date} -- written by {frontMatter.writer}</Text>
             <Box fontSize={"18px"} p={"3.5vh 0"}>

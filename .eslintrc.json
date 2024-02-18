@@ -3,9 +3,9 @@
     "rules": {
         "react/react-in-jsx-scope": "off",
         "react/prop-types": "off",
-        "react/function-component-definition": {
-            "unnamedComponents": "arrow-function"
-        }
+	 "react/function-component-definition": {
+		 "unnamedComponents": "arrow-function"
+	 }
     },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {

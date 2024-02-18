@@ -19,7 +19,11 @@ export default function Post({ posts }) {
       padding: '4.2vh 10px 7vh 40px',
       background: '#000000',
     }}>
-      <HMeta pageTitle={"Blog and Release "} pageDescription={"official blog and other"} pageImg={'/api/og?title=Blog'} />
+      <HMeta 
+        pageTitle={"Blog and Release "} 
+        pageDescription={"official blog and other"} 
+        pageImg={'/api/og?title=Blog'} 
+        pagePath='/blog'/>
       <SimpleGrid columns={[2, null, 3]} minChildWidth='350px' spacing='10px'>
         {posts.map((post) => (
             <Box

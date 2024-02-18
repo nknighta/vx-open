@@ -2,7 +2,6 @@ import { Html, Main, NextScript, Head } from 'next/document';
 import React, { useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import HMeta from 'components/headmeta';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const MyDocument = () => {
     // test mode
@@ -17,7 +16,6 @@ const MyDocument = () => {
         <Html lang='en'>
             <Analytics />
             <Head />
-            <HMeta />
             <body
                 style={{
                     height: 'auto',
@@ -27,7 +25,6 @@ const MyDocument = () => {
                 }}>
                 <Main />
                 <NextScript />
-                <SpeedInsights />
             </body>
         </Html>
     );

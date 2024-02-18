@@ -1,7 +1,5 @@
 import React from 'react';
-import { WagmiConfig } from 'wagmi';
-import { config } from 'scripts/metamaskConfig';
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { Box, ChakraProvider, extendTheme } from '@chakra-ui/react';
 import VARIUSHeader from '../components/header';
 import Footer from '../components/footer';
 import theme from './themes';
@@ -11,7 +9,15 @@ const Layout = ({ children }) => {
         <div>
             <ChakraProvider theme={theme}>
                 <VARIUSHeader />
-                <WagmiConfig config={config}>{children}</WagmiConfig>
+                <Box  
+				    m={{
+					    sm: "1vh 5vh", 
+					    md: "1vh 5vh", 
+					    lg:"1vh 8vh", 
+					    xl:"1vh 11vh"
+				    }}>
+                    {children}
+                </Box>
                 <footer>
                     <Footer />
                 </footer>
