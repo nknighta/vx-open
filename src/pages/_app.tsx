@@ -1,13 +1,9 @@
-import { ReactElement, ReactNode, useEffect } from 'react';
-import { NextPage } from 'next';
-import type { AppProps } from 'next/app';
+import {ReactElement, ReactNode, useEffect} from 'react';
+import {NextPage} from 'next';
+import type {AppProps} from 'next/app';
 import './global.css';
-import Providers from 'components/provider';
-import * as gtag from 'scripts/gtag';
-import { useRouter } from 'next/router'
-import Script from 'next/script';
-import Providers from 'components/provider';
-// fixed Generic type 'AppProps<P, IP, C>' requires 3 type argument(s).
+import {SessionProvider} from "next-auth/react";
+
 type AppPropsWithLayout = AppProps & {
     Component: NextPage & {
         getLayout?: (page: ReactElement) => ReactNode;
@@ -16,40 +12,17 @@ type AppPropsWithLayout = AppProps & {
 
 // <Providers> is for react-query and wagmi sh
 // import from 'components/provider'
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
-    const router = useRouter();
-
-    const getLayout =
-        Component.getLayout ||
-        ((page) => {
-            return page;
-        });
-
-    useEffect(() => {
-        const handleRouteChange = (url) => {
-            gtag.pageview(url)
-        }
-        router.events.on('routeChangeComplete', handleRouteChange)
-        return () => {
-            router.events.off('routeChangeComplete', handleRouteChange)
-        }
-    }, [])
-    return getLayout(
-        <Providers>
-        <div style={{
-            margin: 0,
-            padding: 0,
-            fontFamily: '"Noto Sans JP", sans-serif'
-        }}>
-
-            <Script async src="https://www.googletagmanager.com/gtag/js?id=G-18XMLEQQ2G"></Script>
-            <Script id="gtag" defer dangerouslySetInnerHTML={{
-                __html: `window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());`
-            }}></Script>
-            <Component {...pageProps} />
-        </div>,
-        </Providers>
+export default function App({Component, pageProps: {session, ...pageProps}}: AppPropsWithLayout) {
+    return (
+        <SessionProvider session={session}>
+                {process.env.NODE_ENV == "development" ? (<script src="http://localhost:8097"></script>): null}
+            <div style={{
+                margin: 0,
+                padding: 0,
+                fontFamily: '"Noto Sans JP", sans-serif'
+            }}>
+                <Component {...pageProps} />
+            </div>
+        </SessionProvider>
     );
 }

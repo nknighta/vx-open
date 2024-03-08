@@ -14,11 +14,14 @@ export default function handler(request: NextRequest) {
     // ?title=<des>
     const title = hasTitle
       ? searchParams.get('title')?.slice(0, 100)
-      : 'My default title';
+      : 'aa';
+    const titleencoded = encodeURIComponent(title)
+    //const titledencoded = 
+
     const hasDescription = searchParams.has('description');
     const description = hasDescription
       ? searchParams.get('description')?.slice(0, 100)
-      : ' sample description';
+      : 'powered by VARIUS';
 
         return new ImageResponse(
       (
@@ -47,7 +50,7 @@ export default function handler(request: NextRequest) {
             }}
           >
             <p style={{ fontSize: 60, fontWeight: 700, color: "#fff" }}>
-              {title}
+              {decodeURIComponent(titleencoded)}
             </p>
             <span style={{ height: 200 }} />
             <p style={{ fontSize: 36, fontWeight: 700, color: "#ffffffc0" }}>

@@ -1,15 +1,5 @@
 /node_modules
-/.next
-/.idea
-/.vscode
-/out
-/build
-/prisma/migrations
-
-# files
-*.log
-./yarn.lock
-.env.development.local
-.env.local
+.next
+.idea
+/dist
 .env
-.vercel

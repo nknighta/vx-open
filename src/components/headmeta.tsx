@@ -9,6 +9,10 @@ interface MetaProps {
     pageImgHeight?: number;
 }
 
+export const metaDataImage = async () => {
+
+}
+
 const HMeta: React.FC<MetaProps> = ({ pageTitle, pageDescription, pagePath, pageImg, pageImgWidth, pageImgHeight }) => {
     const defaultTitle = 'VARIUS';
     const defaultDescription = 'Web3 development';

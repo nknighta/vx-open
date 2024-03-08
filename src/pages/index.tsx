@@ -1,22 +1,28 @@
-import { ComponentType, ReactNode, Suspense } from 'react';
+import { ComponentType, ReactNode, Suspense, useEffect } from 'react';
 import Layout from 'layout/main';
 import HMeta from 'components/headmeta';
-import { getWindowWidth } from '../scripts/getWidth';
-import { Center, Box, Text, Grid } from '@chakra-ui/react';
+import { Center, Box,  Grid } from '@chakra-ui/react';
 import dynamic from "next/dynamic"
 import Image from 'next/image';
-
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 const Home = () => {
+    const { data: session } = useSession();
     const LazyComponent: ComponentType<{}> = dynamic(() => import('../components/threebox'), {
         loading: () => <Loading />,
         ssr: false,
     });
-    const width: number = getWindowWidth();
-    const padding: string = width > 968 ? '70px' : '20px';
-    const flexmode: string = width > 968 ? 'flex' : '';
+    const router = useRouter();
+    useEffect(() => {
+        if (session) {
+            router.push("/?auth=true")
+        } else {
+            router.push("/")
+        }
+    },[session])
     return (
-        <>
+        <Layout>
             <HMeta
                 pageTitle='Home'
                 pageDescription='VARIUS development team'
@@ -26,13 +32,6 @@ const Home = () => {
             <Box h={700}>
                 <LazyComponent />
             </Box>
-            <Center
-                fontFamily={`"REM", sans-serif`}
-                fontSize={50}
-                padding={padding}
-                wordBreak={'break-word'}>
-                Start building your web3 development
-            </Center>
             <Center fontSize={35}>feature</Center>
             <Center >
                 <Grid>
@@ -116,12 +115,8 @@ const Home = () => {
                     </Box>
                 </Grid>
             </Center>
-        </>
+        </Layout>
     );
-};
-
-Home.getLayout = (page: ReactNode): JSX.Element => {
-    return <Layout>{page}</Layout>;
 };
 
 
