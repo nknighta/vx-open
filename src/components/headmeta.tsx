@@ -54,7 +54,7 @@ const HMeta: React.FC<MetaProps> = ({ pageTitle, pageDescription, pagePath, page
             />
             <meta
                 property='og:image'
-                content={`https://dev.varius.technology${pageImg}`}
+                content={`https://media.varius.technology${pageImg}`}
             />
             <meta
                 property='og:image:width'

@@ -7,25 +7,25 @@ import { Text, Box, Badge, Image, SimpleGrid } from '@chakra-ui/react';
 import { getWindowWidth } from 'scripts/getWidth';
 
 export default function Post({ posts }) {
-  
+
   //sm: "30em",
   //md: "48em",
   //lg: "62em",
   //xl: "80em",
-  const width = getWindowWidth();
   return (
-    <div style={{
-      margin: '0 auto',
-      padding: '4.2vh 10px 7vh 40px',
-      background: '#000000',
-    }}>
-      <HMeta 
-        pageTitle={"Blog and Release "} 
-        pageDescription={"official blog and other"} 
-        pageImg={'/api/og?title=Blog'} 
-        pagePath='/blog'/>
-      <SimpleGrid columns={[2, null, 3]} minChildWidth='350px' spacing='10px'>
-        {posts.map((post) => (
+    <Layout>
+      <div style={{
+        margin: '0 auto',
+        padding: '4.2vh 10px 7vh 40px',
+        background: '#000000',
+      }}>
+        <HMeta
+          pageTitle={"Blog and Release "}
+          pageDescription={"official blog and other"}
+          pageImg={'https://media.varius.technology/api/og?title=Blog%20and%20Release%20&description=official%20blog%20and%20other'}
+          pagePath='/blog' />
+        <SimpleGrid columns={[2, null, 3]} minChildWidth='350px' spacing='10px'>
+          {posts.map((post) => (
             <Box
               maxW={380}
               bg={"brand.300"}
@@ -33,7 +33,7 @@ export default function Post({ posts }) {
               overflow={"hidden"}
               m={2}>
               <Link href={`/blog/${post.slug}`} key={post.slug}>
-                <Image src={`/api/og?title=${post.frontMatter.title}&description=${post.frontMatter.description}`}
+                <Image src={`https://media.varius.technology/api/og?title=${post.frontMatter.title}&description=${post.frontMatter.description}`}
                   width={365}
                   height={200}
                   alt={`${post.frontMatter.description}-preview.png`} />
@@ -49,9 +49,10 @@ export default function Post({ posts }) {
                 </Box>
               </Link>
             </Box>
-        ))}
-      </SimpleGrid>
-    </div>
+          ))}
+        </SimpleGrid>
+      </div>
+    </Layout>
   );
 }
 
@@ -73,11 +74,3 @@ export const getStaticProps = () => {
     },
   };
 };
-
-Post.getLayout = (page) => {
-  return (
-    <Layout>
-      {page}
-    </Layout>
-  );
-}

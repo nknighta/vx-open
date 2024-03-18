@@ -1,19 +1,20 @@
 import React from 'react';
-import {Box, ChakraProvider, Grid, GridItem, Icon, Text} from '@chakra-ui/react';
+import { Box, ChakraProvider, Grid, GridItem, Icon, Text } from '@chakra-ui/react';
 import VARIUSHeader from 'components/header';
-import {getWindowWidth} from '../scripts/getWidth';
 import Link from "next/link";
-import {AiFillGithub} from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
+import theme from './themes';
+import { getWindowWidth } from '../scripts/getWidth';
 
-const Layout = ({children}: any) => {
+const Layout = ({ children }: any) => {
     const width = getWindowWidth();
 
-    const isMobile: string = width > 960 ? 'repeat(3, 1fr)' : 'repeat(1, 1fr)';
+    const isMobile: boolean = width > 960 ? false : true;
     const isComlumn: boolean = width > 960 ? true : false;
 
     return (
-        <ChakraProvider>
-            <VARIUSHeader/>
+        <ChakraProvider theme={theme}>
+            <VARIUSHeader />
             {process.env.NODE_ENV == "development" ? (
                 <>
                     debug mode
@@ -23,9 +24,11 @@ const Layout = ({children}: any) => {
                     </div>
                 </>
             ) : ("")}
-            <>
+            <div style={{
+                padding: isMobile ? '0 3vh' : '0 10vh',
+            }}>
                 {children}
-            </>
+            </div>
             <footer
                 style={{
                     margin: '0 auto',
@@ -33,7 +36,7 @@ const Layout = ({children}: any) => {
                     background: '#000000',
                 }}>
                 <Grid
-                    templateColumns={isMobile}
+                    templateColumns={isMobile ? 'repeat(1, 1fr)' : 'repeat(3, 1fr)'}
                     templateRows={isComlumn ? '' : 'repeat(3)'}
                     gap={4}
                 >
@@ -44,22 +47,22 @@ const Layout = ({children}: any) => {
                             Pages
                         </Text>
                         <Box>
-                            <Text p={'3px 0'} width={"50%"}>
+                            <Text p={'3px 0'}>
                                 <Link href={'/blog'}>
                                     Blog
                                 </Link>
                             </Text>
-                            <Text p={'3px 0'} width={"50%"}>
+                            <Text p={'3px 0'}>
                                 <Link href={'/docs'}>
                                     Docs
                                 </Link>
                             </Text>
-                            <Text p={'3px 0'} width={"50%"}>
+                            <Text p={'3px 0'}>
                                 <Link href={'/about'}>
                                     About
                                 </Link>
                             </Text>
-                            <Text p={'3px 0'} width={"50%"}>
+                            <Text p={'3px 0'}>
                                 <Link
                                     href={'https://github.com/search?q=owner%3Anknighta+vx&type=repositories'}>
                                     Repositoryes - GitHub
@@ -70,6 +73,7 @@ const Layout = ({children}: any) => {
                                     Wiki - GitHub
                                 </Link>
                             </Text>
+                            ===
                         </Box>
                     </GridItem>
                     <GridItem>
@@ -79,18 +83,26 @@ const Layout = ({children}: any) => {
                             Social
                         </Text>
                         <div>
-                            <Link href={'https://github.com/nknighta/'}>
-                                <Text p={'3px 0'}>GitHub</Text>
-                            </Link>
-                            <Link href={'https://twitter.com/ama_dev_1/'}>
-                                <Text p={'3px 0'}>Twitter</Text>
-                            </Link>
-                            <Link href={'https://misskey.io/@nknighta/'}>
-                                <Text p={'3px 0'}>Misskey.io</Text>
-                            </Link>
-                            <Link href={'https://youtube.com/@ama_p213/'}>
-                                <Text p={'3px 0'}>Youtube</Text>
-                            </Link>
+                            <Text p={'3px 0'}>
+                                <Link href={'https://github.com/nknighta/'} target='_blank'>
+                                    GitHub - nknighta
+                                </Link>
+                            </Text>
+                            <Text p={'3px 0'}>
+                                <Link href={'https://twitter.com/ama_dev_1/'} target='_blank'>
+                                    Twitter (X) - @ama_dev_1
+                                </Link>
+                            </Text>
+                            <Text p={'3px 0'}>
+                                <Link href={'https://misskey.io/@nknighta/'} target='_blank'>
+                                    Misskey.io - @nknighta
+                                </Link>
+                            </Text>
+                            <Text p={'3px 0'}>
+                                <Link href={'https://youtube.com/@ama_p213/'} target='_blank'>
+                                    Youtube - @ama_p213
+                                </Link>
+                            </Text>
                         </div>
                     </GridItem>
                 </Grid>

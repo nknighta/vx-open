@@ -16,19 +16,16 @@ import {HamburgerIcon} from '@chakra-ui/icons';
 import NextLink from 'next/link';
 import Image from "next/image";
 import {useSession} from "next-auth/react";
-import Link from "next/link";
 import {useRouter} from "next/router";
 
 const LightMenu = () => {
     const router = useRouter();
     const {isOpen, onOpen, onClose} = useDisclosure();
-    const btnRef = React.useRef();
     const {data: session} = useSession();
-    const { auth} = router.query;
+    const { auth } = router.query;
     return (
         <Box>
             <Button
-                ref={btnRef}
                 colorScheme='black'
                 onClick={onOpen}
                 fontSize={30}
@@ -41,8 +38,7 @@ const LightMenu = () => {
             <Drawer
                 isOpen={isOpen}
                 placement='right'
-                onClose={onClose}
-                finalFocusRef={btnRef}>
+                onClose={onClose}>
                 <DrawerOverlay/>
                 <DrawerContent
                     backgroundColor={'#000016'}
@@ -66,7 +62,7 @@ const LightMenu = () => {
                                     </NextLink>
                             </div>) : (
                                 <Image
-                                    src={session?.user  ?.image}
+                                    src={`${session?.user?.image}`}
                                     alt={"account image"}
                                     style={{
                                         borderRadius: "50px",

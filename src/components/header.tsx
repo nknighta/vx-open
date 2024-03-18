@@ -44,7 +44,7 @@ export default function VARIUSHeader() {
                         height: "50px"
                     }}
                     onClick={() => {
-                        router.push(process.env.NODE_ENV == "development" ? 'http://localhost:3000/dashboard' : 'https://dev.varius.technology/dashboard');
+                        router.push('/dashboard');
                     }}>
                     {session ? (
                         <Image

@@ -5,7 +5,7 @@ import HMeta from "components/headmeta";
 import Image from "next/image";
 export default function About() {
     return (
-        <>
+        <Layout>
             <BgImage />
             <HMeta pageTitle="About VARIUS" />
             <Center
@@ -44,14 +44,6 @@ export default function About() {
                     - Web3 platform
                 </Box>
             </Box>
-        </>
-    )
-}
-
-About.getLayout = (page: ReactNode) => {
-    return (
-        <Layout>
-            {page}
         </Layout>
     )
 }
