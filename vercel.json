@@ -2,8 +2,15 @@
   "version": 2,
   "builds": [
     {
-      "src": "./src-server",
+      "src": "dist/index.js",
       "use": "@vercel/node"
     }
-  ]
+  ],
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "dist/index.js"
+    }
+  ],
+  "buildCommand": "yarn build"
 }
