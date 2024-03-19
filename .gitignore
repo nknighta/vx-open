@@ -1,6 +1,8 @@
-/node_modules
+## directory structure
+
 .next
 .idea
-/dist
+/node_modules
+
 .env
-.vercel
+``` 
