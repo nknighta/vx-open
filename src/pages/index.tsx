@@ -1,26 +1,28 @@
-import { ComponentType, ReactNode, Suspense, useEffect } from 'react';
+import { ComponentType, useEffect } from 'react';
 import Layout from 'layout/main';
 import HMeta from 'components/headmeta';
-import { Center, Box,  Grid } from '@chakra-ui/react';
+import { Center, Box, Grid } from '@chakra-ui/react';
 import dynamic from "next/dynamic"
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
-const Home = () => {
+export default function Home (){
     const { data: session } = useSession();
     const LazyComponent: ComponentType<{}> = dynamic(() => import('../components/threebox'), {
         loading: () => <Loading />,
         ssr: false,
     });
     const router = useRouter();
+    const {auth, from} = router.query;
     useEffect(() => {
         if (session) {
-            router.push("/?auth=true")
+            router.push("/?auth=true&from=dashboard")
         } else {
-            router.push("/")
+            router.push("/?from=dashboard")
         }
-    },[session])
+    }, [session])
+    console.log({auth, from})
     return (
         <Layout>
             <HMeta
@@ -42,7 +44,6 @@ const Home = () => {
                     >
                         <Box
                             w={400}
-                            content=''
                             h={200}
                             borderBottom={"1px solid #7654ff"}
                             borderRight={"1px solid transparent"}
@@ -61,57 +62,35 @@ const Home = () => {
                             <Center>Learn Web3 development</Center>
                         </Box>
                     </Box>
-                    <Box
-                        border={"1px solid #9684ff"}
-                        w={400}
-                        h={200}
-                        m={8}>
-                        <Box p={2} />
-                        <Center>
-                            <Image
-                                src='app.svg'
-                                width={100}
-                                height={100}
-                                alt='create app'
-                            />
-                        </Center>
-                        <Box p={2} />
-                        <Center>Create App using VX</Center>
-                    </Box>
-                    <Box
-                        border={"1px solid #9684ff"}
-                        w={400}
-                        h={200}
-                        m={8}>
-                        <Box p={2} />
-                        <Center>
-                            <Image
-                                src='app.svg'
-                                width={100}
-                                height={100}
-                                alt='create app'
-                            />
-                        </Center>
-                        <Box p={2} />
-                        <Center>Analyze Data</Center>
-                    </Box>
 
                     <Box
-                        border={"1px solid #9684ff"}
+                        m={8}
                         w={400}
                         h={200}
-                        m={8}>
-                        <Box p={2} />
-                        <Center>
-                            <Image
-                                src='app.svg'
-                                width={100}
-                                height={100}
-                                alt='create app'
-                            />
-                        </Center>
-                        <Box p={2} />
-                        <Center>Eazy Wallet Connection</Center>
+                    >
+                        <Box
+                            w={400}
+                            content=''
+                            h={200}
+                            borderBottom={"1px solid #7654ff"}
+                            borderRight={"1px solid transparent"}
+                            position={"absolute"}
+                        >
+                            <Box p={2} />
+                            <Center>
+                                <Image
+                                    src='app.svg'
+                                    width={100}
+                                    height={100}
+                                    alt='learn web3'
+                                />
+                            </Center>
+                            <Box p={2} />
+                            <Center>Create App using VX</Center>
+                        </Box>
+                    </Box>
+                    <Box p={5}>
+                        Start your develop 
                     </Box>
                 </Grid>
             </Center>
@@ -131,4 +110,3 @@ function Loading(): JSX.Element {
         {">_ : "}Loading...
     </div>;
 }
-export default Home;

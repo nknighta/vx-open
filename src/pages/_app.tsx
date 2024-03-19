@@ -13,7 +13,12 @@ type AppPropsWithLayout = AppProps & {
 // <Providers> is for react-query and wagmi sh
 // import from 'components/provider'
 export default function App({Component, pageProps: {session, ...pageProps}}: AppPropsWithLayout) {
-    return (
+    const getLayout =
+        Component.getLayout ||
+        ((page) => {
+            return page;
+        });
+    return getLayout(   
         <SessionProvider session={session}>
                 {process.env.NODE_ENV == "development" ? (<script src="http://localhost:8097"></script>): null}
             <div style={{

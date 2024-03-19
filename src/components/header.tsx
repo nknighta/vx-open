@@ -2,21 +2,22 @@ import React from 'react';
 import {
     Flex,
     Link,
-    Box
+    Box,
+    Text
 } from '@chakra-ui/react';
-import {useRouter} from 'next/router';
-import {Icon} from '@chakra-ui/react';
+import { useRouter } from 'next/router';
+import { Icon } from '@chakra-ui/react';
 // breakpoint is 850px
 // desktop menu is LightMenuDesktop
 // mobile menu is LightMenu
-import {BiWalletAlt} from 'react-icons/bi';
+import { BiWalletAlt } from 'react-icons/bi';
 import LightMenu from './hmenu';
-import {useSession} from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 
 export default function VARIUSHeader() {
     const router = useRouter();
-    const {data: session} = useSession();
+    const { data: session } = useSession();
     return (
         <Flex
             w={"100%"}
@@ -27,17 +28,25 @@ export default function VARIUSHeader() {
             p={"0.7vh 3vh"}>
             <Box p={"13px 0"}>
                 <Link href={'/'}
-                      style={{
-                          fontSize: "20px"
-                      }}>
-                    VARIUS projects.
+                    style={{
+                        fontSize: "20px"
+                    }}>
+                    <Box display={"flex"}
+                        justifyContent={"space-between"}
+                        alignItems={"center"}
+                        w={"120px"}
+                    >
+                        <p>VX</p>
+                        | 
+                        <p>VARIUS.</p>
+                    </Box>
                 </Link>
             </Box>
             <Flex
                 height={"100%"}
                 justifyContent={'flex-end'}
                 alignItems={"center"}>
-                <LightMenu/>
+                <LightMenu />
                 <button
                     style={{
                         width: "50px",

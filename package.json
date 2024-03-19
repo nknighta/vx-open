@@ -4,12 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "api": "tsc -p tsconfig.server.json && cross-env NODE_ENV=development PORT=3000 DEBUG=express:router node ./dist/index.js",
-    "api:mem": "tsc -p tsconfig.server.json && cross-env NODE_ENV=development PORT=3000 DEBUG=express:router node --max-old-space-size=2000 ./dist/index.js",
-    "build": "yarn build:express",
-    "build:next": "next build && next export",
-    "build:express": "tsc -p tsconfig.server.json",
-    "api:watch": "cross-env NODE_ENV=development PORT=3000 nodemon"
+    "dev": "next dev",
+    "dev:turbo": "next dev --turbo"
   },
   "keywords": [],
   "author": "nknight amamiya<nknight.works@varius-developers.work>",
