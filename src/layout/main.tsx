@@ -48,11 +48,6 @@ const Layout = ({ children }: any) => {
                         </Text>
                         <Box>
                             <Text p={'3px 0'}>
-                                <Link href={'/blog'}>
-                                    Blog
-                                </Link>
-                            </Text>
-                            <Text p={'3px 0'}>
                                 <Link href={'/docs'}>
                                     Docs
                                 </Link>
