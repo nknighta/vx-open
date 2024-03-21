@@ -1,10 +1,9 @@
-import { ReactElement, ReactNode, useEffect } from 'react';
-import { NextPage } from 'next';
-import type { AppProps } from 'next/app';
+import {ReactElement, ReactNode, useEffect} from 'react';
+import {NextPage} from 'next';
+import type {AppProps} from 'next/app';
 import './global.css';
-import Providers from 'components/provider';
+import {SessionProvider} from "next-auth/react";
 
-// fixed Generic type 'AppProps<P, IP, C>' requires 3 type argument(s).
 type AppPropsWithLayout = AppProps & {
     Component: NextPage & {
         getLayout?: (page: ReactElement) => ReactNode;
@@ -13,27 +12,22 @@ type AppPropsWithLayout = AppProps & {
 
 // <Providers> is for react-query and wagmi sh
 // import from 'components/provider'
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
+export default function App({Component, pageProps: {session, ...pageProps}}: AppPropsWithLayout) {
     const getLayout =
         Component.getLayout ||
         ((page) => {
             return page;
         });
-
-    return getLayout(
-        <Providers>
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-18XMLEQQ2G"></script>
-            <script>
-                {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '18XMLEQQ2', {
-            page_path: window.location.pathname,
-          });
-        `}
-            </script>
-            <Component {...pageProps} />
-        </Providers>
+    return getLayout(   
+        <SessionProvider session={session}>
+                {process.env.NODE_ENV == "development" ? (<script src="http://localhost:8097"></script>): null}
+            <div style={{
+                margin: 0,
+                padding: 0,
+                fontFamily: '"Noto Sans JP", sans-serif'
+            }}>
+                <Component {...pageProps} />
+            </div>
+        </SessionProvider>
     );
 }

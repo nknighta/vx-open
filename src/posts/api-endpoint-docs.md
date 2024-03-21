@@ -6,9 +6,3 @@ description: 'API Endpoint Docs test post'
 ---
 
 # API Endpoint Docs
-
-links
-
-[api](https://dev.varius.technology/api)
-
-[OGP](https://dev.varius.technology/api/og)

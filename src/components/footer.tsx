@@ -2,7 +2,7 @@ import { Box, Text, Grid, GridItem, Icon, createIcon } from '@chakra-ui/react';
 import Link from 'next/link';
 import React from 'react';
 import { getWindowWidth } from '../scripts/getWidth';
-import { AiFillGithub, AiOutlineTwitter } from 'react-icons/ai';
+import { AiFillGithub } from 'react-icons/ai';
 
 const Footer = () => {
     const width: number = getWindowWidth();
@@ -82,7 +82,7 @@ const Footer = () => {
                 w={8}
                 h={8}
                 mt={2}
-                onClick={() => window.open('https://github.com/nknighta/vx')}
+                onClick={() => window.open('https://github.com/nknighta/vx-docs')}
                 cursor={'pointer'}
             />
         </div>

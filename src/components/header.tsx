@@ -1,7 +1,10 @@
 import React from 'react';
-import { Box, Button, Flex, Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Link, useDisclosure, Text } from '@chakra-ui/react';
-import { getWindowWidth } from '../scripts/getWidth';
-import { HamburgerIcon } from '@chakra-ui/icons';
+import {
+    Flex,
+    Link,
+    Box,
+    Text
+} from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { Icon } from '@chakra-ui/react';
 // breakpoint is 850px
@@ -9,64 +12,71 @@ import { Icon } from '@chakra-ui/react';
 // mobile menu is LightMenu
 import { BiWalletAlt } from 'react-icons/bi';
 import LightMenu from './hmenu';
+import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 export default function VARIUSHeader() {
-    const width: number = getWindowWidth();
-    const dpadding = width > 990 ? '10vh' : '3vh';
+    const router = useRouter();
+    const { data: session } = useSession();
     return (
-        <Box
+        <Flex
+            w={"100%"}
+            h={"80px"}
             bg={'#000012'}
             color={'#fff'}
-            p={3}
-            pl={dpadding}
-            pr={dpadding}>
-            <Flex>
-                <Flex
-                    w={'50%'}
-                    p={3}
-                    alignContent={'center'}>
-                    <Link href={'/'}>
-                        <Text fontSize={'xl'}>VARIUS projects.</Text>
-                    </Link>
-                </Flex>
-                <Flex
-                    w={'50%'}
-                    justifyContent={'flex-end'}
-                    alignItems={'center'}>
-                    <LightMenu />
-                    <AccountDisp />
-                </Flex>
-            </Flex>
-        </Box>
-    );
-}
-
-export const AccountDisp = () => {
-    const router = useRouter();
-    return (
-        <Box
-            bgColor={'#6a17a1'}
-            width={45}
-            borderRadius={50}>
+            justifyContent={"space-between"}
+            p={"0.7vh 3vh"}>
+            <Box p={"13px 0"}>
+                <Link href={'/'}
+                    style={{
+                        fontSize: "20px"
+                    }}>
+                    <Box display={"flex"}
+                        justifyContent={"space-between"}
+                        alignItems={"center"}
+                        w={"120px"}
+                    >
+                        <p>VX</p>
+                        | 
+                        <p>VARIUS.</p>
+                    </Box>
+                </Link>
+            </Box>
             <Flex
-                p={1}
-                alignItems={'center'}
-                justifyContent={'center'}>
-                <Button
-                    borderRadius={50}
+                height={"100%"}
+                justifyContent={'flex-end'}
+                alignItems={"center"}>
+                <LightMenu />
+                <button
+                    style={{
+                        width: "50px",
+                        height: "50px"
+                    }}
                     onClick={() => {
                         router.push('/dashboard');
                     }}>
-                    <Icon
-                        as={BiWalletAlt}
-                        color={'#6a17a1'}
-                        w={6}
-                        h={6}
-                    />
-                </Button>
+                    {session ? (
+                        <Image
+                            src={`${session?.user?.image}`}
+                            alt={"user icon"}
+                            width={100}
+                            height={100}
+                            style={{
+                                borderRadius: "50px",
+                            }}
+                        />
+                    ) : (
+                        <Icon
+                            as={BiWalletAlt}
+                            color={'#6a17a1'}
+                            w={6}
+                            h={6}
+                        />
+                    )}
+                </button>
             </Flex>
-        </Box>
-    );
-};
 
+        </Flex>
+    );
+}
 

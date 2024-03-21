@@ -1,18 +1,31 @@
 import React from 'react';
-import { Box, Button, Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, useDisclosure } from '@chakra-ui/react';
-import { HamburgerIcon } from '@chakra-ui/icons';
+import {
+    Box,
+    Button,
+    Drawer,
+    DrawerBody,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerOverlay,
+    DrawerContent,
+    DrawerCloseButton,
+    useDisclosure,
+    Divider
+} from '@chakra-ui/react';
+import {HamburgerIcon} from '@chakra-ui/icons';
 import NextLink from 'next/link';
-import { useAccount, useConnect, useDisconnect } from 'wagmi';
-import { InjectedConnector } from '@web3-react/injected-connector';
+import Image from "next/image";
+import {useSession} from "next-auth/react";
+import {useRouter} from "next/router";
 
 const LightMenu = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const btnRef = React.useRef();
-
+    const router = useRouter();
+    const {isOpen, onOpen, onClose} = useDisclosure();
+    const {data: session} = useSession();
+    const { auth } = router.query;
     return (
         <Box>
             <Button
-                ref={btnRef}
                 colorScheme='black'
                 onClick={onOpen}
                 fontSize={30}
@@ -20,21 +33,44 @@ const LightMenu = () => {
                 h={45}
                 ml={4}
                 mr={4}>
-                <HamburgerIcon />
+                <HamburgerIcon/>
             </Button>
             <Drawer
                 isOpen={isOpen}
                 placement='right'
-                onClose={onClose}
-                finalFocusRef={btnRef}>
-                <DrawerOverlay />
+                onClose={onClose}>
+                <DrawerOverlay/>
                 <DrawerContent
                     backgroundColor={'#000016'}
                     color={'#fff'}>
-                    <DrawerCloseButton />
+                    <DrawerCloseButton/>
                     <DrawerHeader>Menu</DrawerHeader>
 
                     <DrawerBody>
+                        <Box
+                            bgColor={"#4826b0"}
+                            borderRadius={4}
+                            h={100}
+                            p={2}
+                        >
+                            {!session || auth == undefined ? (<div>
+                                no sign in yet?
+                                    <NextLink
+                                        href={'/dashboard'}
+                                        onClick={onClose}>
+                                        Sign In
+                                    </NextLink>
+                            </div>) : (
+                                <Image
+                                    src={`${session?.user?.image}`}
+                                    alt={"account image"}
+                                    style={{
+                                        borderRadius: "50px",
+                                    }}
+                                    width={50} height={50}/>
+                            )}
+                        </Box>
+                        <Divider marginY={6}/>
                         <Box m={'7px'}>
                             <NextLink
                                 href={'/'}
@@ -52,13 +88,26 @@ const LightMenu = () => {
 
                         <Box m={'7px'}>
                             <NextLink
-                                href={'/blog'}
+                                href={'/about'}
                                 onClick={onClose}>
-                                Blog
+                                About
                             </NextLink>
                         </Box>
+
                         <Box m={'7px'}>
-                            fix now
+                            <NextLink
+                                href={'/docs'}
+                                onClick={onClose}>
+                                Documentation
+                            </NextLink>
+                        </Box>
+
+                        <Box m={'7px'}>
+                            <NextLink
+                                href={'/settings'}
+                                onClick={onClose}>
+                                Settings
+                            </NextLink>
                         </Box>
                     </DrawerBody>
 

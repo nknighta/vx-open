@@ -1,15 +1,8 @@
-/node_modules
-/.next
-/.idea
-/.vscode
-/out
-/build
-/.vercel
+## directory structure
 
-# files
-*.log
-./yarn.lock
-.env.development.local
-.env.local
+.next
+.idea
+/node_modules
+
 .env
-.vercel
+``` 
