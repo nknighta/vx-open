@@ -8,7 +8,7 @@ export default function Docs() {
         <Box
             marginX={[0, 3, 10, 40]}>
             <Box maxWidth={1500}>
-                <HMeta pageTitle="Docs" pageDescription="" pageImg={"/api/og=Docs"}/>
+                <HMeta pageTitle="Docs"  pageImg={"/api/og=Docs"}/>
                 <Box
                     fontSize={30}
                 >
