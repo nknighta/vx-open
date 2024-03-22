@@ -14,22 +14,11 @@ export default function Home (){
         ssr: false,
     });
     const router = useRouter();
-    let userstatus = {
-        auth: false,
-        from: ''
-    }
-    if (router.query.auth) {
-        userstatus.auth = true
-    }
-    if (router.query.from) {
-        userstatus.from = router.query.from as string
-    }
-    console.log(userstatus)
     useEffect(() => {
         if (session) {
-            router.push("/?auth=true&from=dashboard")
+            router.push("/?auth=true")
         } else {
-            router.push("/?from=dashboard")
+            router.push("/")
         }
     }, [session])
     return (
@@ -97,9 +86,6 @@ export default function Home (){
                             <Box p={2} />
                             <Center>Create App using VX</Center>
                         </Box>
-                    </Box>
-                    <Box p={5}>
-                        {userstatus.auth ? "authed" : "not auth"}
                     </Box>
                 </Grid>
             </Center>
