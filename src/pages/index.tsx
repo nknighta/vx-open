@@ -14,7 +14,17 @@ export default function Home (){
         ssr: false,
     });
     const router = useRouter();
-    const {auth, from} = router.query;
+    let userstatus = {
+        auth: false,
+        from: ''
+    }
+    if (router.query.auth) {
+        userstatus.auth = true
+    }
+    if (router.query.from) {
+        userstatus.from = router.query.from as string
+    }
+    console.log(userstatus)
     useEffect(() => {
         if (session) {
             router.push("/?auth=true&from=dashboard")
@@ -22,7 +32,6 @@ export default function Home (){
             router.push("/?from=dashboard")
         }
     }, [session])
-    console.log({auth, from})
     return (
         <Layout>
             <HMeta
@@ -90,7 +99,7 @@ export default function Home (){
                         </Box>
                     </Box>
                     <Box p={5}>
-                        Start your develop 
+                        {userstatus.auth ? "authed" : "not auth"}
                     </Box>
                 </Grid>
             </Center>
