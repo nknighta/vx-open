@@ -1,0 +1,10 @@
+## directory structure
+
+.next
+.idea
+/node_modules
+/prisma/migrations
+/.vercel
+
+.env
+``` 
